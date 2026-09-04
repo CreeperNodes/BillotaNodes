@@ -34,12 +34,54 @@ $$('.auth-required').forEach(el=>el.addEventListener('click',e=>{e.preventDefaul
 const about=$('#aboutModal');$('#learnMoreBtn')?.addEventListener('click',()=>{about.classList.add('open');about.setAttribute('aria-hidden','false')});$$('[data-close-about]').forEach(b=>b.addEventListener('click',()=>about?.classList.remove('open')));
 
 // Plans and checkout
-$$('.plan-select').forEach(btn=>btn.addEventListener('click',()=>{selectedPlan={name:btn.dataset.plan,price:Number(btn.dataset.price),ram:btn.dataset.ram,cpu:btn.dataset.cpu,disk:btn.dataset.disk};getUser()?openCheckout():openAuth('checkout')}));
+const locationHardware={
+  india:{region:'India',primary:'AMD EPYC 7K62',alternate:'Intel Platinum 8269CY'},
+  singapore:{region:'Singapore',primary:'AMD EPYC',alternate:'Intel Haswell'},
+  germany:{region:'Germany',primary:'AMD EPYC',alternate:'Intel Gold 6150'},
+  usa:{region:'USA - California',primary:'AMD EPYC 7413',alternate:'Intel Xeon E5'}
+};
+const cycleMultipliers={monthly:{label:'Monthly',multiplier:1},quarterly:{label:'Quarterly',multiplier:2.85},semiannually:{label:'Semi-Annually',multiplier:5.4},annually:{label:'Annually',multiplier:9.6},biennially:{label:'Biennially',multiplier:16.8},triennially:{label:'Triennially',multiplier:21.6}};
+let selectedCycle='monthly';
+
+function updateHardware(key){
+  const h=locationHardware[key]||locationHardware.india;
+  $('#hardwareRegion').textContent=h.region;
+  $('#hardwarePrimary').textContent=h.primary;
+  $('#hardwareAlternate').textContent=h.alternate;
+}
+$('#planLocation')?.addEventListener('change',e=>updateHardware(e.target.value));
+$$('.plan-tier-tab').forEach(tab=>tab.addEventListener('click',()=>{
+  $$('.plan-tier-tab').forEach(x=>x.classList.toggle('active',x===tab));
+  const tier=tab.dataset.planTier;
+  $('.premium-plans').hidden=tier!=='premium';
+  $('.deluxe-plans').hidden=tier!=='deluxe';
+}));
+$$('.plan-select').forEach(btn=>btn.addEventListener('click',()=>{
+  selectedPlan={name:btn.dataset.plan,price:Number(btn.dataset.price),ram:btn.dataset.ram,cpu:btn.dataset.cpu,disk:btn.dataset.disk,backups:btn.dataset.backups,ports:btn.dataset.ports,databases:btn.dataset.databases};
+  selectedCycle='monthly';
+  getUser()?openCheckout():openAuth('checkout')
+}));
 const checkout=$('#checkoutModal');
-function openCheckout(){if(!selectedPlan){selectedPlan={name:'Iron',price:99,ram:'4 GB',cpu:'2 vCPU',disk:'30 GB NVMe'}};const p=selectedPlan;$('#checkoutPlan').innerHTML=`<h3>${p.name} Plan <span style="float:right;color:#85f6b0">₹${p.price}/mo</span></h3><div class="plan-specs"><span>${p.ram} RAM</span><span>${p.cpu}</span><span>${p.disk}</span><span>DDoS Protection</span></div>`;$('#orderSummary').innerHTML=`<div class="summary-row"><span>${p.name} server</span><b>₹${p.price}</b></div><div class="summary-row"><span>Billing cycle</span><b>Monthly</b></div><div class="summary-row"><span>Provisioning</span><b>After verification</b></div>`;$('#upiAmount').textContent='₹'+p.price;$('#summaryTotal').textContent='₹'+p.price;checkout.classList.add('open');checkout.setAttribute('aria-hidden','false')}
+function cycleAmount(){const c=cycleMultipliers[selectedCycle]||cycleMultipliers.monthly;return Math.round((selectedPlan?.price||0)*c.multiplier*100)/100}
+function money(v){return '₹'+Number(v).toLocaleString('en-IN',{maximumFractionDigits:2})}
+function refreshCheckout(){
+  if(!selectedPlan)return;
+  const p=selectedPlan,total=cycleAmount(),cycle=cycleMultipliers[selectedCycle];
+  $('#checkoutPlan').innerHTML=`<div class="checkout-plan-title"><h3>${p.name} Plan</h3><strong>${money(p.price)}/month</strong></div>
+    <div class="checkout-cycle"><label for="billingCycle">Choose billing cycle</label>
+    <select id="billingCycle">${Object.entries(cycleMultipliers).map(([k,v])=>`<option value="${k}" ${k===selectedCycle?'selected':''}>${v.label} — ${money(Math.round(p.price*v.multiplier*100)/100)}</option>`).join('')}</select></div>
+    <div class="plan-specs"><span>${p.cpu}</span><span>${p.ram} Memory</span><span>${p.disk}</span><span>${p.backups} Backups</span><span>${p.ports} Ports</span><span>${p.databases} Databases</span><span>Premium Game Panel</span><span>Advanced DDoS Protection</span></div>`;
+  $('#orderSummary').innerHTML=`<div class="summary-row"><span>${p.name} Minecraft Server</span><b>${money(p.price)}</b></div><div class="summary-row"><span>Billing cycle</span><b>${cycle.label}</b></div><div class="summary-row"><span>Selected location</span><b>${$('#hardwareRegion')?.textContent||'India'}</b></div><div class="summary-row"><span>Provisioning</span><b>After verification</b></div>`;
+  $('#upiAmount').textContent=money(total);$('#summaryTotal').textContent=money(total);
+  $('#billingCycle')?.addEventListener('change',e=>{selectedCycle=e.target.value;refreshCheckout()});
+}
+function openCheckout(){
+  if(!selectedPlan){selectedPlan={name:'Iron',price:571.74,ram:'7 GB',cpu:'280% CPU',disk:'42 GB NVMe',backups:3,ports:4,databases:4}};
+  refreshCheckout();checkout.classList.add('open');checkout.setAttribute('aria-hidden','false')
+}
 $$('[data-close-checkout]').forEach(b=>b.addEventListener('click',()=>checkout?.classList.remove('open')));
 $$('.checkout-method').forEach(b=>b.addEventListener('click',()=>{$$('.checkout-methods .active')?.classList.remove('active');b.classList.add('active');const upi=b.dataset.method==='upi';$('#upiPayment').classList.toggle('active',upi);$('#paypalPayment').classList.toggle('active',!upi)}));
-$('#submitPaymentProof')?.addEventListener('click',()=>{const ref=$('#paymentReference').value.trim();if(!ref)return showToast('Enter your UPI transaction reference after payment.');const orders=JSON.parse(localStorage.getItem('creepernodes_orders')||'[]');orders.unshift({id:'CN-'+Date.now().toString().slice(-6),plan:selectedPlan?.name||'Plan',amount:selectedPlan?.price||0,status:'Awaiting verification',reference:ref,created:new Date().toLocaleString()});localStorage.setItem('creepernodes_orders',JSON.stringify(orders));checkout.classList.remove('open');showToast('Payment reference submitted for verification.');openClient('orders')});
+$('#submitPaymentProof')?.addEventListener('click',()=>{const ref=$('#paymentReference').value.trim();if(!ref)return showToast('Enter your UPI transaction reference after payment.');const orders=JSON.parse(localStorage.getItem('creepernodes_orders')||'[]');orders.unshift({id:'CN-'+Date.now().toString().slice(-6),plan:selectedPlan?.name||'Plan',amount:cycleAmount(),cycle:cycleMultipliers[selectedCycle].label,status:'Awaiting verification',reference:ref,created:new Date().toLocaleString()});localStorage.setItem('creepernodes_orders',JSON.stringify(orders));checkout.classList.remove('open');showToast('Payment reference submitted for verification.');openClient('orders')});
 $('#paypalInfoBtn')?.addEventListener('click',()=>showToast('Connect your real PayPal checkout before accepting PayPal payments.'));
 
 // Separate client dashboard
@@ -59,6 +101,6 @@ $('#exitClient')?.addEventListener('click',closeClient);
 $('#clientSignOut')?.addEventListener('click',()=>{localStorage.removeItem('creepernodes_user');closeClient();showToast('Signed out.');});
 $('#browsePlansBtn')?.addEventListener('click',()=>{closeClient();document.querySelector('#plans')?.scrollIntoView({behavior:'smooth'})});
 $('#buyFromServers')?.addEventListener('click',()=>{closeClient();document.querySelector('#plans')?.scrollIntoView({behavior:'smooth'})});
-$('#renewServerBtn')?.addEventListener('click',()=>{selectedPlan={name:'Iron Renewal',price:99,ram:'4 GB',cpu:'2 vCPU',disk:'30 GB NVMe'};openCheckout()});
+$('#renewServerBtn')?.addEventListener('click',()=>{selectedPlan={name:'Iron Renewal',price:571.74,ram:'7 GB',cpu:'280% CPU',disk:'42 GB NVMe',backups:3,ports:4,databases:4};selectedCycle='monthly';openCheckout()});
 
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAuth();about?.classList.remove('open');checkout?.classList.remove('open')}});

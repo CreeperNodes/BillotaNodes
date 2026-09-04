@@ -175,20 +175,493 @@
     </section>
 
     <section id="plans" class="section pricing-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-kicker">MINECRAFT HOSTING</span>
-          <h2>Choose your CreeperNodes plan.</h2>
-          <p>Example plans below — replace pricing and specifications with your actual offers before accepting customers.</p>
-        </div>
-        <div class="pricing-grid">
-          <article class="price-card"><h3>Grass</h3><p class="plan-note">For small worlds</p><div class="price">₹49<span>/mo</span></div><ul><li>✓ 2 GB RAM</li><li>✓ 1 vCPU</li><li>✓ 15 GB NVMe</li><li>✓ DDoS Protection</li></ul><button type="button" class="plan-select button ghost full" data-plan="Grass" data-price="49" data-ram="2 GB" data-cpu="1 vCPU" data-disk="15 GB NVMe">Choose Plan</button></article>
-          <article class="price-card popular"><span class="popular-badge">MOST POPULAR</span><h3>Iron</h3><p class="plan-note">For active communities</p><div class="price">₹99<span>/mo</span></div><ul><li>✓ 4 GB RAM</li><li>✓ 2 vCPU</li><li>✓ 30 GB NVMe</li><li>✓ Priority Support</li></ul><button type="button" class="plan-select button primary full" data-plan="Iron" data-price="99" data-ram="4 GB" data-cpu="2 vCPU" data-disk="30 GB NVMe">Choose Plan</button></article>
-          <article class="price-card"><h3>Diamond</h3><p class="plan-note">For larger servers</p><div class="price">₹199<span>/mo</span></div><ul><li>✓ 8 GB RAM</li><li>✓ 3 vCPU</li><li>✓ 60 GB NVMe</li><li>✓ DDoS Protection</li></ul><button type="button" class="plan-select button ghost full" data-plan="Diamond" data-price="199" data-ram="8 GB" data-cpu="3 vCPU" data-disk="60 GB NVMe">Choose Plan</button></article>
-          <article class="price-card"><h3>Netherite</h3><p class="plan-note">For serious networks</p><div class="price">₹399<span>/mo</span></div><ul><li>✓ 16 GB RAM</li><li>✓ 4 vCPU</li><li>✓ 100 GB NVMe</li><li>✓ Priority Support</li></ul><button type="button" class="plan-select button ghost full" data-plan="Netherite" data-price="399" data-ram="16 GB" data-cpu="4 vCPU" data-disk="100 GB NVMe">Choose Plan</button></article>
-        </div>
+  <div class="container">
+    <div class="section-heading plans-heading">
+      <span class="section-kicker">MINECRAFT HOSTING</span>
+      <h2>Choose the perfect plan for your community.</h2>
+      <p>Choose a performance tier and location, then compare resources and order the plan that fits your server.</p>
+    </div>
+
+    <div class="plans-control-bar">
+      <div class="plan-tier-tabs" role="tablist" aria-label="Hosting tier">
+        <button type="button" class="plan-tier-tab active" data-plan-tier="premium">Premium</button>
+        <button type="button" class="plan-tier-tab" data-plan-tier="deluxe">Deluxe</button>
       </div>
-    </section>
+      <div class="plan-location-select">
+        <span>Server location</span>
+        <select id="planLocation">
+          <option value="india">India</option>
+          <option value="singapore">Singapore</option>
+          <option value="germany">Germany</option>
+          <option value="usa">USA - California</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="hardware-strip" id="hardwareStrip">
+      <div><span>Selected region</span><strong id="hardwareRegion">India</strong></div>
+      <div><span>Primary processor</span><strong id="hardwarePrimary">AMD EPYC 7K62</strong></div>
+      <div><span>Alternate hardware</span><strong id="hardwareAlternate">Intel Platinum 8269CY</strong></div>
+      <small>Hardware availability depends on your actual node capacity and location.</small>
+    </div>
+
+    <div class="pricing-grid premium-plans">
+      <article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Gravel</h3>
+      <div class="price">₹95.29<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>100% CPU</b></div><div><span>Memory</span><b>2 GB</b></div>
+        <div><span>Storage</span><b>12 GB NVMe</b></div><div><span>Backups</span><b>1</b></div>
+        <div><span>Ports</span><b>1</b></div><div><span>Databases</span><b>1</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Gravel" data-price="95.29" data-ram="2 GB" data-cpu="100% CPU" data-disk="12 GB NVMe"
+        data-backups="1" data-ports="1" data-databases="1">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Andesite</h3>
+      <div class="price">₹190.58<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>150% CPU</b></div><div><span>Memory</span><b>3 GB</b></div>
+        <div><span>Storage</span><b>18 GB NVMe</b></div><div><span>Backups</span><b>2</b></div>
+        <div><span>Ports</span><b>2</b></div><div><span>Databases</span><b>2</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Andesite" data-price="190.58" data-ram="3 GB" data-cpu="150% CPU" data-disk="18 GB NVMe"
+        data-backups="2" data-ports="2" data-databases="2">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Cobblestone</h3>
+      <div class="price">₹285.87<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>180% CPU</b></div><div><span>Memory</span><b>4 GB</b></div>
+        <div><span>Storage</span><b>25 GB NVMe</b></div><div><span>Backups</span><b>2</b></div>
+        <div><span>Ports</span><b>2</b></div><div><span>Databases</span><b>4</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Cobblestone" data-price="285.87" data-ram="4 GB" data-cpu="180% CPU" data-disk="25 GB NVMe"
+        data-backups="2" data-ports="2" data-databases="4">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Stone</h3>
+      <div class="price">₹381.16<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>200% CPU</b></div><div><span>Memory</span><b>5 GB</b></div>
+        <div><span>Storage</span><b>30 GB NVMe</b></div><div><span>Backups</span><b>2</b></div>
+        <div><span>Ports</span><b>2</b></div><div><span>Databases</span><b>4</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Stone" data-price="381.16" data-ram="5 GB" data-cpu="200% CPU" data-disk="30 GB NVMe"
+        data-backups="2" data-ports="2" data-databases="4">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Coal</h3>
+      <div class="price">₹476.45<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>250% CPU</b></div><div><span>Memory</span><b>6 GB</b></div>
+        <div><span>Storage</span><b>36 GB NVMe</b></div><div><span>Backups</span><b>3</b></div>
+        <div><span>Ports</span><b>4</b></div><div><span>Databases</span><b>4</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Coal" data-price="476.45" data-ram="6 GB" data-cpu="250% CPU" data-disk="36 GB NVMe"
+        data-backups="3" data-ports="4" data-databases="4">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Iron</h3>
+      <div class="price">₹571.74<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>280% CPU</b></div><div><span>Memory</span><b>7 GB</b></div>
+        <div><span>Storage</span><b>42 GB NVMe</b></div><div><span>Backups</span><b>3</b></div>
+        <div><span>Ports</span><b>4</b></div><div><span>Databases</span><b>4</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Iron" data-price="571.74" data-ram="7 GB" data-cpu="280% CPU" data-disk="42 GB NVMe"
+        data-backups="3" data-ports="4" data-databases="4">Order Plan →</button>
+    </article>
+<article class="price-card popular" data-plan-card data-tier="premium">
+      <span class="popular-badge">MOST POPULAR</span>
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Gold</h3>
+      <div class="price">₹667.03<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>300% CPU</b></div><div><span>Memory</span><b>8 GB</b></div>
+        <div><span>Storage</span><b>48 GB NVMe</b></div><div><span>Backups</span><b>4</b></div>
+        <div><span>Ports</span><b>5</b></div><div><span>Databases</span><b>6</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button primary full"
+        data-plan="Gold" data-price="667.03" data-ram="8 GB" data-cpu="300% CPU" data-disk="48 GB NVMe"
+        data-backups="4" data-ports="5" data-databases="6">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Diamond</h3>
+      <div class="price">₹762.32<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>350% CPU</b></div><div><span>Memory</span><b>10 GB</b></div>
+        <div><span>Storage</span><b>60 GB NVMe</b></div><div><span>Backups</span><b>4</b></div>
+        <div><span>Ports</span><b>5</b></div><div><span>Databases</span><b>6</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Diamond" data-price="762.32" data-ram="10 GB" data-cpu="350% CPU" data-disk="60 GB NVMe"
+        data-backups="4" data-ports="5" data-databases="6">Order Plan →</button>
+    </article>
+<article class="price-card popular" data-plan-card data-tier="premium">
+      <span class="popular-badge">MOST POPULAR</span>
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Emerald</h3>
+      <div class="price">₹952.9<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>400% CPU</b></div><div><span>Memory</span><b>12 GB</b></div>
+        <div><span>Storage</span><b>72 GB NVMe</b></div><div><span>Backups</span><b>5</b></div>
+        <div><span>Ports</span><b>6</b></div><div><span>Databases</span><b>8</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button primary full"
+        data-plan="Emerald" data-price="952.9" data-ram="12 GB" data-cpu="400% CPU" data-disk="72 GB NVMe"
+        data-backups="5" data-ports="6" data-databases="8">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Netherite</h3>
+      <div class="price">₹1,238.77<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>450% CPU</b></div><div><span>Memory</span><b>16 GB</b></div>
+        <div><span>Storage</span><b>96 GB NVMe</b></div><div><span>Backups</span><b>5</b></div>
+        <div><span>Ports</span><b>6</b></div><div><span>Databases</span><b>8</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Netherite" data-price="1238.77" data-ram="16 GB" data-cpu="450% CPU" data-disk="96 GB NVMe"
+        data-backups="5" data-ports="6" data-databases="8">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Obsidian</h3>
+      <div class="price">₹1,429.35<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>500% CPU</b></div><div><span>Memory</span><b>18 GB</b></div>
+        <div><span>Storage</span><b>108 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>10</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Obsidian" data-price="1429.35" data-ram="18 GB" data-cpu="500% CPU" data-disk="108 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="10">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Bedrock</h3>
+      <div class="price">₹1,524.64<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>550% CPU</b></div><div><span>Memory</span><b>20 GB</b></div>
+        <div><span>Storage</span><b>120 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>10</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Bedrock" data-price="1524.64" data-ram="20 GB" data-cpu="550% CPU" data-disk="120 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="10">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Beacon</h3>
+      <div class="price">₹1,715.22<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>600% CPU</b></div><div><span>Memory</span><b>24 GB</b></div>
+        <div><span>Storage</span><b>135 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>12</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Beacon" data-price="1715.22" data-ram="24 GB" data-cpu="600% CPU" data-disk="135 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="12">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Thunder</h3>
+      <div class="price">₹1,905.8<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>650% CPU</b></div><div><span>Memory</span><b>28 GB</b></div>
+        <div><span>Storage</span><b>145 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>12</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Thunder" data-price="1905.8" data-ram="28 GB" data-cpu="650% CPU" data-disk="145 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="12">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="premium">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">PREMIUM</span></div>
+      <h3>Crystal</h3>
+      <div class="price">₹2,191.67<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>No CPU Limit</b></div><div><span>Memory</span><b>32 GB</b></div>
+        <div><span>Storage</span><b>160 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>14</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Crystal" data-price="2191.67" data-ram="32 GB" data-cpu="No CPU Limit" data-disk="160 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="14">Order Plan →</button>
+    </article>
+    </div>
+
+    <div class="pricing-grid deluxe-plans" hidden>
+      <article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Gravel</h3>
+      <div class="price">₹95.29<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>100% CPU</b></div><div><span>Memory</span><b>2 GB</b></div>
+        <div><span>Storage</span><b>12 GB NVMe</b></div><div><span>Backups</span><b>1</b></div>
+        <div><span>Ports</span><b>1</b></div><div><span>Databases</span><b>1</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Gravel" data-price="95.29" data-ram="2 GB" data-cpu="100% CPU" data-disk="12 GB NVMe"
+        data-backups="1" data-ports="1" data-databases="1">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Andesite</h3>
+      <div class="price">₹190.58<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>150% CPU</b></div><div><span>Memory</span><b>3 GB</b></div>
+        <div><span>Storage</span><b>18 GB NVMe</b></div><div><span>Backups</span><b>2</b></div>
+        <div><span>Ports</span><b>2</b></div><div><span>Databases</span><b>2</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Andesite" data-price="190.58" data-ram="3 GB" data-cpu="150% CPU" data-disk="18 GB NVMe"
+        data-backups="2" data-ports="2" data-databases="2">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Cobblestone</h3>
+      <div class="price">₹285.87<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>180% CPU</b></div><div><span>Memory</span><b>4 GB</b></div>
+        <div><span>Storage</span><b>25 GB NVMe</b></div><div><span>Backups</span><b>2</b></div>
+        <div><span>Ports</span><b>2</b></div><div><span>Databases</span><b>4</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Cobblestone" data-price="285.87" data-ram="4 GB" data-cpu="180% CPU" data-disk="25 GB NVMe"
+        data-backups="2" data-ports="2" data-databases="4">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Stone</h3>
+      <div class="price">₹381.16<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>200% CPU</b></div><div><span>Memory</span><b>5 GB</b></div>
+        <div><span>Storage</span><b>30 GB NVMe</b></div><div><span>Backups</span><b>2</b></div>
+        <div><span>Ports</span><b>2</b></div><div><span>Databases</span><b>4</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Stone" data-price="381.16" data-ram="5 GB" data-cpu="200% CPU" data-disk="30 GB NVMe"
+        data-backups="2" data-ports="2" data-databases="4">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Coal</h3>
+      <div class="price">₹476.45<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>250% CPU</b></div><div><span>Memory</span><b>6 GB</b></div>
+        <div><span>Storage</span><b>36 GB NVMe</b></div><div><span>Backups</span><b>3</b></div>
+        <div><span>Ports</span><b>4</b></div><div><span>Databases</span><b>4</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Coal" data-price="476.45" data-ram="6 GB" data-cpu="250% CPU" data-disk="36 GB NVMe"
+        data-backups="3" data-ports="4" data-databases="4">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Iron</h3>
+      <div class="price">₹571.74<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>280% CPU</b></div><div><span>Memory</span><b>7 GB</b></div>
+        <div><span>Storage</span><b>42 GB NVMe</b></div><div><span>Backups</span><b>3</b></div>
+        <div><span>Ports</span><b>4</b></div><div><span>Databases</span><b>4</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Iron" data-price="571.74" data-ram="7 GB" data-cpu="280% CPU" data-disk="42 GB NVMe"
+        data-backups="3" data-ports="4" data-databases="4">Order Plan →</button>
+    </article>
+<article class="price-card popular" data-plan-card data-tier="deluxe">
+      <span class="popular-badge">MOST POPULAR</span>
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Gold</h3>
+      <div class="price">₹667.03<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>300% CPU</b></div><div><span>Memory</span><b>8 GB</b></div>
+        <div><span>Storage</span><b>48 GB NVMe</b></div><div><span>Backups</span><b>4</b></div>
+        <div><span>Ports</span><b>5</b></div><div><span>Databases</span><b>6</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button primary full"
+        data-plan="Gold" data-price="667.03" data-ram="8 GB" data-cpu="300% CPU" data-disk="48 GB NVMe"
+        data-backups="4" data-ports="5" data-databases="6">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Diamond</h3>
+      <div class="price">₹762.32<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>350% CPU</b></div><div><span>Memory</span><b>10 GB</b></div>
+        <div><span>Storage</span><b>60 GB NVMe</b></div><div><span>Backups</span><b>4</b></div>
+        <div><span>Ports</span><b>5</b></div><div><span>Databases</span><b>6</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Diamond" data-price="762.32" data-ram="10 GB" data-cpu="350% CPU" data-disk="60 GB NVMe"
+        data-backups="4" data-ports="5" data-databases="6">Order Plan →</button>
+    </article>
+<article class="price-card popular" data-plan-card data-tier="deluxe">
+      <span class="popular-badge">MOST POPULAR</span>
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Emerald</h3>
+      <div class="price">₹952.9<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>400% CPU</b></div><div><span>Memory</span><b>12 GB</b></div>
+        <div><span>Storage</span><b>72 GB NVMe</b></div><div><span>Backups</span><b>5</b></div>
+        <div><span>Ports</span><b>6</b></div><div><span>Databases</span><b>8</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button primary full"
+        data-plan="Emerald" data-price="952.9" data-ram="12 GB" data-cpu="400% CPU" data-disk="72 GB NVMe"
+        data-backups="5" data-ports="6" data-databases="8">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Netherite</h3>
+      <div class="price">₹1,238.77<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>450% CPU</b></div><div><span>Memory</span><b>16 GB</b></div>
+        <div><span>Storage</span><b>96 GB NVMe</b></div><div><span>Backups</span><b>5</b></div>
+        <div><span>Ports</span><b>6</b></div><div><span>Databases</span><b>8</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Netherite" data-price="1238.77" data-ram="16 GB" data-cpu="450% CPU" data-disk="96 GB NVMe"
+        data-backups="5" data-ports="6" data-databases="8">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Obsidian</h3>
+      <div class="price">₹1,429.35<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>500% CPU</b></div><div><span>Memory</span><b>18 GB</b></div>
+        <div><span>Storage</span><b>108 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>10</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Obsidian" data-price="1429.35" data-ram="18 GB" data-cpu="500% CPU" data-disk="108 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="10">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Bedrock</h3>
+      <div class="price">₹1,524.64<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>550% CPU</b></div><div><span>Memory</span><b>20 GB</b></div>
+        <div><span>Storage</span><b>120 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>10</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Bedrock" data-price="1524.64" data-ram="20 GB" data-cpu="550% CPU" data-disk="120 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="10">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Beacon</h3>
+      <div class="price">₹1,715.22<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>600% CPU</b></div><div><span>Memory</span><b>24 GB</b></div>
+        <div><span>Storage</span><b>135 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>12</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Beacon" data-price="1715.22" data-ram="24 GB" data-cpu="600% CPU" data-disk="135 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="12">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Thunder</h3>
+      <div class="price">₹1,905.8<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>650% CPU</b></div><div><span>Memory</span><b>28 GB</b></div>
+        <div><span>Storage</span><b>145 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>12</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Thunder" data-price="1905.8" data-ram="28 GB" data-cpu="650% CPU" data-disk="145 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="12">Order Plan →</button>
+    </article>
+<article class="price-card" data-plan-card data-tier="deluxe">
+      
+      <div class="plan-topline"><span class="plan-game">MINECRAFT SERVER</span><span class="plan-tier">DELUXE</span></div>
+      <h3>Crystal</h3>
+      <div class="price">₹2,191.67<span>/month</span></div>
+      <div class="plan-spec-grid">
+        <div><span>CPU</span><b>No CPU Limit</b></div><div><span>Memory</span><b>32 GB</b></div>
+        <div><span>Storage</span><b>160 GB NVMe</b></div><div><span>Backups</span><b>8</b></div>
+        <div><span>Ports</span><b>8</b></div><div><span>Databases</span><b>14</b></div>
+      </div>
+      <ul class="plan-includes"><li>✓ Premium Game Panel</li><li>✓ Advanced DDoS Protection</li></ul>
+      <button type="button" class="plan-select button ghost full"
+        data-plan="Crystal" data-price="2191.67" data-ram="32 GB" data-cpu="No CPU Limit" data-disk="160 GB NVMe"
+        data-backups="8" data-ports="8" data-databases="14">Order Plan →</button>
+    </article>
+    </div>
+  </div>
+</section>
 
     <section id="locations" class="section locations-section">
       <div class="container">
