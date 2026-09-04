@@ -74,8 +74,8 @@
           <h1>Host Your Own<br><span>Minecraft</span> Servers</h1>
           <p>Experience powerful hardware, low-latency routing, dependable uptime and friendly support built for your Minecraft community.</p>
           <div class="hero-buttons">
-            <button type="button" class="button primary" id="getStartedBtn">Get started <span>→</span></button>
-            <button type="button" class="button ghost" id="learnMoreBtn">Learn More <span>→</span></button>
+            <button type="button" class="button primary" id="getStartedBtn" onclick="var m=document.getElementById('authModal'); if(m){m.classList.add('open');m.setAttribute('aria-hidden','false');} return false;">Get started <span>→</span></button>
+            <button type="button" class="button ghost" id="learnMoreBtn" onclick="var m=document.getElementById('aboutModal'); if(m){m.classList.add('open');m.setAttribute('aria-hidden','false');} return false;">Learn More <span>→</span></button>
           </div>
           <div class="hero-meta">
             <span>⚡ India</span><b>•</b><span>Fast setup</span><b>•</b><span>Asia</span><strong>+10% today</strong>
@@ -861,6 +861,18 @@
     </section>
   </div>
 
+  <script>
+  /* Click fallback: keeps Get Started and Learn More working even if the external JS is cached or fails to load. */
+  (function(){
+    function open(id){var m=document.getElementById(id);if(m){m.classList.add('open');m.setAttribute('aria-hidden','false');}}
+    function close(id){var m=document.getElementById(id);if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}}
+    var gs=document.getElementById('getStartedBtn'), lm=document.getElementById('learnMoreBtn');
+    if(gs) gs.onclick=function(e){if(e)e.preventDefault();open('authModal');return false;};
+    if(lm) lm.onclick=function(e){if(e)e.preventDefault();open('aboutModal');return false;};
+    document.querySelectorAll('[data-close-about]').forEach(function(b){b.onclick=function(){close('aboutModal');};});
+    document.querySelectorAll('[data-auth-close]').forEach(function(b){b.onclick=function(){close('authModal');};});
+  })();
+  </script>
   <div id="toast" class="toast">Copied!</div>
   <script src="script.js"></script>
 </body>
