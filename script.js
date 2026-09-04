@@ -28,10 +28,32 @@ $('#signInForm')?.addEventListener('submit',e=>{e.preventDefault();const email=$
 $('#signUpForm')?.addEventListener('submit',e=>{e.preventDefault();const name=$('#signUpName').value.trim(),email=$('#signUpEmail').value.trim(),pass=$('#signUpPassword').value;if(!name||!validEmail(email)||pass.length<6)return showToast('Use your name, valid email and a password of at least 6 characters.');setUser({name,email});afterAuth()});
 
 function afterAuth(){const action=pendingAction;pendingAction=null;closeAuth();if(action==='checkout')openCheckout();else openClient();}
+
+// Get Started: always open the real sign-in flow first for signed-out visitors,
+// then open the separate client dashboard after successful sign-in.
+$('#getStartedBtn')?.addEventListener('click',e=>{
+  e.preventDefault();
+  if(getUser()){
+    openClient();
+    return;
+  }
+  openAuth('client');
+});
+
+// Other protected entry points keep the same behaviour.
 $$('.auth-required').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();if(getUser())openClient();else openAuth('client')}));
 
-// Learn more
-const about=$('#aboutModal');$('#learnMoreBtn')?.addEventListener('click',()=>{about.classList.add('open');about.setAttribute('aria-hidden','false')});$$('[data-close-about]').forEach(b=>b.addEventListener('click',()=>about?.classList.remove('open')));
+// Learn More: open the About BillotaNodes popup without navigating away.
+const about=$('#aboutModal');
+$('#learnMoreBtn')?.addEventListener('click',e=>{
+  e.preventDefault();
+  about?.classList.add('open');
+  about?.setAttribute('aria-hidden','false');
+});
+$$('[data-close-about]').forEach(b=>b.addEventListener('click',()=>{
+  about?.classList.remove('open');
+  about?.setAttribute('aria-hidden','true');
+}));
 
 // Plans and checkout
 const locationHardware={
