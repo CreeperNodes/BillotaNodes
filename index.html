@@ -875,5 +875,33 @@
   </script>
   <div id="toast" class="toast">Copied!</div>
   <script src="script.js"></script>
+<script>
+/* Last-resort CTA handler: capture-phase delegation works even if another layer/script interferes. */
+(function(){
+  function showModal(id){
+    var modal=document.getElementById(id);
+    if(!modal) return;
+    modal.style.display='flex';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    modal.style.pointerEvents='auto';
+  }
+  document.addEventListener('click',function(e){
+    var btn=e.target && e.target.closest ? e.target.closest('#getStartedBtn,#learnMoreBtn') : null;
+    if(!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if(btn.id==='getStartedBtn') showModal('authModal');
+    else showModal('aboutModal');
+  },true);
+  document.addEventListener('pointerup',function(e){
+    var btn=e.target && e.target.closest ? e.target.closest('#getStartedBtn,#learnMoreBtn') : null;
+    if(!btn) return;
+    e.preventDefault();
+    if(btn.id==='getStartedBtn') showModal('authModal');
+    else showModal('aboutModal');
+  },true);
+})();
+</script>
 </body>
 </html>

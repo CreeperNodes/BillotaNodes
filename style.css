@@ -99,3 +99,26 @@ footer{border-top:1px solid var(--line);background:#06100c}.footer-grid{display:
 
 /* BillotaNodes: empty client dashboard state */
 .empty-servers{grid-column:1/-1;border:1px dashed #2a4938;background:linear-gradient(145deg,#0d1d15,#09140e);border-radius:18px;padding:42px 24px;text-align:center;color:#dff5e6}.empty-servers h3{font-family:"Space Grotesk";font-size:24px;margin:8px 0}.empty-servers p{max-width:560px;margin:0 auto 18px;color:#8fa298;font-size:13px;line-height:1.7}.empty-cat{font-size:42px;filter:drop-shadow(0 0 18px rgba(40,210,120,.22))}
+
+/* Force hero content and CTA buttons above decorative overlays so they always receive taps/clicks. */
+.hero-grid,
+.hero-glow {
+  pointer-events: none !important;
+}
+.hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+}
+.hero-copy,
+.hero-buttons,
+#getStartedBtn,
+#learnMoreBtn {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto !important;
+}
+#getStartedBtn,
+#learnMoreBtn {
+  cursor: pointer !important;
+  touch-action: manipulation;
+}
