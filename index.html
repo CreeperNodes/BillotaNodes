@@ -22,8 +22,8 @@
   <header class="site-header">
     <nav class="navbar container">
       <a class="brand" href="#home">
-        <span class="cat-mark" aria-hidden="true"><i></i><i></i><b></b></span>
-        <span>Billota<span>Nodes</span></span>
+        <span class="minecraft-cat-mark" aria-hidden="true"><i class="cat-ear cat-ear-left"></i><i class="cat-ear cat-ear-right"></i><i class="cat-head"></i><i class="cat-eye cat-eye-left"></i><i class="cat-eye cat-eye-right"></i><i class="cat-muzzle"></i></span>
+        <span>Creeper<span>Nodes</span></span>
       </a>
 
       <button class="menu-toggle" aria-label="Open navigation">☰</button>
@@ -58,7 +58,23 @@
       </div>
 
       <div class="nav-actions">
-        <a class="panel-select auth-required" href="#panel" data-auth-action="panel">▦ Panels <span>⌄</span></a>
+        <div class="panel-dropdown">
+          <button type="button" class="panel-select" aria-expanded="false">▦ Panels <span>⌃</span></button>
+          <div class="panel-dropdown-menu" role="menu">
+            <a class="panel-option auth-required" href="#clientAreaView" data-auth-action="panel" data-panel="game">
+              <span class="panel-option-icon">🎮</span>
+              <span><b>Game Panel</b><small>Manage your game servers</small></span>
+            </a>
+            <a class="panel-option auth-required" href="#clientAreaView" data-auth-action="panel" data-panel="vps">
+              <span class="panel-option-icon">▤</span>
+              <span><b>VPS Panel</b><small>Manage your VPS instances</small></span>
+            </a>
+            <a class="panel-option auth-required" href="#clientAreaView" data-auth-action="panel" data-panel="web">
+              <span class="panel-option-icon">◎</span>
+              <span><b>Web Panel</b><small>Manage your web hosting</small></span>
+            </a>
+          </div>
+        </div>
         <a class="client-button auth-required" href="#plans" data-auth-action="client">▣ Client Area</a>
       </div>
     </nav>
@@ -689,10 +705,10 @@
           <p>When you have real partners or testimonials, add them here.</p>
         </div>
         <div class="creator-grid">
-          <article><div class="avatar">BN</div><h3>Your Creator</h3><p>Community Partner</p></article>
-          <article><div class="avatar">BN</div><h3>Your Network</h3><p>Server Community</p></article>
-          <article><div class="avatar">BN</div><h3>Your Partner</h3><p>Content Creator</p></article>
-          <article><div class="avatar">BN</div><h3>Your Team</h3><p>Gaming Community</p></article>
+          <article><div class="avatar">CN</div><h3>Your Creator</h3><p>Community Partner</p></article>
+          <article><div class="avatar">CN</div><h3>Your Network</h3><p>Server Community</p></article>
+          <article><div class="avatar">CN</div><h3>Your Partner</h3><p>Content Creator</p></article>
+          <article><div class="avatar">CN</div><h3>Your Team</h3><p>Gaming Community</p></article>
         </div>
       </div>
     </section>
@@ -743,7 +759,7 @@
 
   <footer>
     <div class="container footer-grid">
-      <div><a class="brand" href="#home"><span class="cat-mark"><i></i><i></i><b></b></span><span>Billota<span>Nodes</span></span></a><p>Performance-focused hosting for Minecraft communities.</p></div>
+      <div><a class="brand" href="#home"><span class="minecraft-cat-mark" aria-hidden="true"><i class="cat-ear cat-ear-left"></i><i class="cat-ear cat-ear-right"></i><i class="cat-head"></i><i class="cat-eye cat-eye-left"></i><i class="cat-eye cat-eye-right"></i><i class="cat-muzzle"></i></span><span>Creeper<span>Nodes</span></span></a><p>Performance-focused hosting for Minecraft communities.</p></div>
       <div><h4>Services</h4><a href="#plans">Minecraft Hosting</a><a href="#infrastructure">Network Protection</a><a href="#panel">Control Panel</a></div>
       <div><h4>Company</h4><a href="#features">About</a><a href="#locations">Locations</a><a href="#faq">Support</a></div>
       <div><h4>Legal</h4><a href="#faq">Terms</a><a href="#faq">Privacy</a><a href="#faq">Refund Policy</a></div>
@@ -758,15 +774,15 @@
     <section class="cn-modal-card about-card" role="dialog" aria-modal="true">
       <button class="cn-modal-close" data-close-about aria-label="Close">×</button>
       <span class="section-kicker">ABOUT BILLOTANODES</span>
-      <h2>Hosting made for communities that want to keep playing.</h2>
-      <p>BillotaNodes is a Minecraft-focused hosting project created by <strong>Avdeshnoob</strong>. The goal is simple: clean management, powerful Ryzen-class hardware, NVMe storage, protected networking and a straightforward client experience.</p>
+      <h2>Built for Minecraft communities. Made to keep worlds online.</h2>
+      <p><strong>BillotaNodes</strong> is a Minecraft-focused hosting project created by <strong>Avdeshnoob</strong>. Our goal is to provide a clean client area, simple server management and a performance-focused hosting experience for communities and creators.</p>
       <div class="about-grid">
         <article><strong>Ryzen-class CPU</strong><span>Performance-focused compute</span></article>
         <article><strong>NVMe Storage</strong><span>Fast world and plugin loading</span></article>
         <article><strong>DDoS Defense</strong><span>Network protection layer</span></article>
         <article><strong>Client Area</strong><span>Servers, expiry and renewals in one place</span></article>
       </div>
-      <p class="about-note">Actual hardware, locations and protection claims should match the infrastructure you deploy.</p>
+      <p class="about-note"><strong>Project:</strong> BillotaNodes · <strong>Creator:</strong> Avdeshnoob · <strong>Focus:</strong> Minecraft hosting, Ryzen-class performance, NVMe storage, DDoS-aware networking, fast setup and an easy-to-use client dashboard. Actual hardware and protection specifications should always match the infrastructure you deploy.</p>
     </section>
   </div>
 
@@ -802,7 +818,7 @@
   <!-- SEPARATE CLIENT AREA / PANEL DASHBOARD -->
   <section id="clientAreaView" class="client-area" aria-hidden="true">
     <aside class="client-sidebar">
-      <div class="client-brand"><span class="cat-mark"><i></i><i></i><b></b></span><span>Billota<span>Nodes</span></span></div>
+      <div class="client-brand"><span class="minecraft-cat-mark" aria-hidden="true"><i class="cat-ear cat-ear-left"></i><i class="cat-ear cat-ear-right"></i><i class="cat-head"></i><i class="cat-eye cat-eye-left"></i><i class="cat-eye cat-eye-right"></i><i class="cat-muzzle"></i></span><span>Creeper<span>Nodes</span></span></div>
       <button class="client-nav active" data-client-view="overview">⌂ <span>Dashboard</span></button>
       <button class="client-nav" data-client-view="servers">▣ <span>My Servers</span></button>
       <button class="client-nav" data-client-view="orders">▤ <span>Orders</span></button>
@@ -812,11 +828,11 @@
       <button class="client-nav" id="clientSignOut">⇥ <span>Sign out</span></button>
     </aside>
     <div class="client-content">
-      <header class="client-topbar"><div><button id="exitClient" class="back-site">← Website</button><span class="client-breadcrumb">Client Area</span></div><div class="client-user"><span id="clientUserInitial">BN</span><div><b id="clientUserName">Client</b><small id="clientUserEmail">client@example.com</small></div></div></header>
+      <header class="client-topbar"><div><button id="exitClient" class="back-site">← Website</button><span class="client-breadcrumb">Client Area</span></div><div class="client-user"><span id="clientUserInitial">CN</span><div><b id="clientUserName">Client</b><small id="clientUserEmail">client@example.com</small></div></div></header>
       <main class="client-main">
         <section class="client-page active" data-client-page="overview">
           <div class="client-title-row"><div><p class="client-kicker">WELCOME BACK</p><h1>Your hosting, at a glance.</h1><p>Manage your servers, renewals and orders from one place.</p></div><button class="button primary" id="browsePlansBtn">+ Buy a server</button></div>
-          <div class="client-summary-grid"><article><span>Active Servers</span><strong id="activeServerCount">0</strong><small>Running services</small></article><article><span>Expiring Soon</span><strong id="expiringCount">0</strong><small>Check your renewal date</small></article><article><span>Open Orders</span><strong id="openOrderCount">0</strong><small>Pending verification</small></article><article><span>Account Status</span><strong class="status-good">Active</strong><small>Client account</small></article></div>
+          <div class="client-summary-grid"><article><span>Active Servers</span><strong id="activeServerCount">1</strong><small>Running services</small></article><article><span>Expiring Soon</span><strong id="expiringCount">1</strong><small>Check your renewal date</small></article><article><span>Open Orders</span><strong id="openOrderCount">0</strong><small>Pending verification</small></article><article><span>Account Status</span><strong class="status-good">Active</strong><small>Client account</small></article></div>
           <div class="client-section-head"><div><h2>My servers</h2><p>Click a server to open its management dashboard.</p></div><button class="text-link client-nav-link" data-target="servers">View all →</button></div>
           <div id="dashboardServerCards" class="dashboard-server-grid"></div>
         </section>
@@ -834,7 +850,7 @@
     <div class="auth-backdrop" data-auth-close></div>
     <section class="auth-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
       <button class="auth-close" type="button" aria-label="Close sign in" data-auth-close>×</button>
-      <div class="auth-brand"><span class="cat-mark"><i></i><i></i><b></b></span><span>Billota<span>Nodes</span></span></div>
+      <div class="auth-brand"><span class="minecraft-cat-mark" aria-hidden="true"><i class="cat-ear cat-ear-left"></i><i class="cat-ear cat-ear-right"></i><i class="cat-head"></i><i class="cat-eye cat-eye-left"></i><i class="cat-eye cat-eye-right"></i><i class="cat-muzzle"></i></span><span>Creeper<span>Nodes</span></span></div>
       <p class="auth-kicker">CLIENT AREA ACCESS</p>
       <h2 id="authTitle">Sign in to continue</h2>
       <p class="auth-subtitle">Sign in to access your separate client dashboard, continue with a plan, or open your server panel.</p>
