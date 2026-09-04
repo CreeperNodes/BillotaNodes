@@ -75,7 +75,7 @@
           <p>Experience powerful hardware, low-latency routing, dependable uptime and friendly support built for your Minecraft community.</p>
           <div class="hero-buttons">
             <a class="button primary auth-required" href="#plans" data-auth-action="get-started">Get started <span>→</span></a>
-            <a class="button ghost" href="#features">Learn More <span>→</span></a>
+            <button type="button" class="button ghost" id="learnMoreBtn">Learn More <span>→</span></button>
           </div>
           <div class="hero-meta">
             <span>⚡ India</span><b>•</b><span>Fast setup</span><b>•</b><span>Asia</span><strong>+10% today</strong>
@@ -139,44 +139,6 @@
       </div>
     </section>
 
-    <section id="panel" class="section panel-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-kicker">POWERFUL CONTROL PANEL</span>
-          <h2>Everything you need. One clean panel.</h2>
-          <p>Manage your server without digging through complicated menus.</p>
-        </div>
-
-        <div class="panel-layout">
-          <div class="panel-tabs" role="tablist">
-            <button class="panel-tab active" data-panel="console">⌘ Console Access</button>
-            <button class="panel-tab" data-panel="mods">◫ Mods Installer</button>
-            <button class="panel-tab" data-panel="plugins">◈ Plugin Installer</button>
-            <button class="panel-tab" data-panel="files">▤ File Manager</button>
-            <button class="panel-tab" data-panel="versions">↻ Version Changer</button>
-          </div>
-
-          <div class="panel-preview">
-            <div class="panel-top"><span class="online-dot"></span> creepernodes.panel <span class="preview-actions">− □ ×</span></div>
-            <div class="panel-screen active" id="console">
-              <div class="console-lines"><span>root@creepernodes:~$</span> Starting Minecraft server...<br><span>[INFO]</span> Loading world: survival<br><span>[INFO]</span> Done! Server ready in 1.82s<br><span class="green">● ONLINE</span> 0/20 players</div>
-            </div>
-            <div class="panel-screen" id="mods"><div class="fake-app"><h3>Mod Library</h3><div class="app-list"><span>Fabric API <button>Install</button></span><span>JourneyMap <button>Install</button></span><span>WorldEdit <button>Install</button></span></div></div></div>
-            <div class="panel-screen" id="plugins"><div class="fake-app"><h3>Plugin Installer</h3><div class="app-list"><span>EssentialsX <button>Install</button></span><span>LuckPerms <button>Install</button></span><span>Vault <button>Install</button></span></div></div></div>
-            <div class="panel-screen" id="files"><div class="fake-app"><h3>File Manager</h3><div class="file-list"><span>📁 plugins</span><span>📁 world</span><span>📄 server.properties</span><span>📄 eula.txt</span></div></div></div>
-            <div class="panel-screen" id="versions"><div class="fake-app"><h3>Server Version</h3><div class="version-cards"><button>Paper 1.21.1</button><button>Purpur 1.21.1</button><button>Fabric 1.21.1</button></div></div></div>
-          </div>
-        </div>
-
-        <div class="panel-benefits">
-          <article><span>◷</span><div><h3>Real-time Monitoring</h3><p>Track CPU, memory, storage and network activity.</p></div></article>
-          <article><span>⌘</span><div><h3>Advanced Console</h3><p>Run commands and monitor your server in real time.</p></div></article>
-          <article><span>▤</span><div><h3>File Management</h3><p>Manage files with a clean, browser-based interface.</p></div></article>
-          <article><span>◉</span><div><h3>Database Ready</h3><p>Future-ready architecture for databases and backups.</p></div></article>
-        </div>
-      </div>
-    </section>
-
     <section id="infrastructure" class="section infrastructure">
       <div class="container">
         <div class="section-heading">
@@ -220,10 +182,10 @@
           <p>Example plans below — replace pricing and specifications with your actual offers before accepting customers.</p>
         </div>
         <div class="pricing-grid">
-          <article class="price-card"><h3>Grass</h3><p class="plan-note">For small worlds</p><div class="price">₹49<span>/mo</span></div><ul><li>✓ 2 GB RAM</li><li>✓ 1 vCPU</li><li>✓ 15 GB NVMe</li><li>✓ DDoS Protection</li></ul><a href="#" class="button ghost full">Choose Plan</a></article>
-          <article class="price-card popular"><span class="popular-badge">MOST POPULAR</span><h3>Iron</h3><p class="plan-note">For active communities</p><div class="price">₹99<span>/mo</span></div><ul><li>✓ 4 GB RAM</li><li>✓ 2 vCPU</li><li>✓ 30 GB NVMe</li><li>✓ Priority Support</li></ul><a href="#" class="button primary full">Choose Plan</a></article>
-          <article class="price-card"><h3>Diamond</h3><p class="plan-note">For larger servers</p><div class="price">₹199<span>/mo</span></div><ul><li>✓ 8 GB RAM</li><li>✓ 3 vCPU</li><li>✓ 60 GB NVMe</li><li>✓ DDoS Protection</li></ul><a href="#" class="button ghost full">Choose Plan</a></article>
-          <article class="price-card"><h3>Netherite</h3><p class="plan-note">For serious networks</p><div class="price">₹399<span>/mo</span></div><ul><li>✓ 16 GB RAM</li><li>✓ 4 vCPU</li><li>✓ 100 GB NVMe</li><li>✓ Priority Support</li></ul><a href="#" class="button ghost full">Choose Plan</a></article>
+          <article class="price-card"><h3>Grass</h3><p class="plan-note">For small worlds</p><div class="price">₹49<span>/mo</span></div><ul><li>✓ 2 GB RAM</li><li>✓ 1 vCPU</li><li>✓ 15 GB NVMe</li><li>✓ DDoS Protection</li></ul><button type="button" class="plan-select button ghost full" data-plan="Grass" data-price="49" data-ram="2 GB" data-cpu="1 vCPU" data-disk="15 GB NVMe">Choose Plan</button></article>
+          <article class="price-card popular"><span class="popular-badge">MOST POPULAR</span><h3>Iron</h3><p class="plan-note">For active communities</p><div class="price">₹99<span>/mo</span></div><ul><li>✓ 4 GB RAM</li><li>✓ 2 vCPU</li><li>✓ 30 GB NVMe</li><li>✓ Priority Support</li></ul><button type="button" class="plan-select button primary full" data-plan="Iron" data-price="99" data-ram="4 GB" data-cpu="2 vCPU" data-disk="30 GB NVMe">Choose Plan</button></article>
+          <article class="price-card"><h3>Diamond</h3><p class="plan-note">For larger servers</p><div class="price">₹199<span>/mo</span></div><ul><li>✓ 8 GB RAM</li><li>✓ 3 vCPU</li><li>✓ 60 GB NVMe</li><li>✓ DDoS Protection</li></ul><button type="button" class="plan-select button ghost full" data-plan="Diamond" data-price="199" data-ram="8 GB" data-cpu="3 vCPU" data-disk="60 GB NVMe">Choose Plan</button></article>
+          <article class="price-card"><h3>Netherite</h3><p class="plan-note">For serious networks</p><div class="price">₹399<span>/mo</span></div><ul><li>✓ 16 GB RAM</li><li>✓ 4 vCPU</li><li>✓ 100 GB NVMe</li><li>✓ Priority Support</li></ul><button type="button" class="plan-select button ghost full" data-plan="Netherite" data-price="399" data-ram="16 GB" data-cpu="4 vCPU" data-disk="100 GB NVMe">Choose Plan</button></article>
         </div>
       </div>
     </section>
@@ -317,6 +279,83 @@
   </footer>
 
 
+  <!-- ABOUT / LEARN MORE -->
+  <div id="aboutModal" class="cn-modal" aria-hidden="true">
+    <div class="cn-modal-backdrop" data-close-about></div>
+    <section class="cn-modal-card about-card" role="dialog" aria-modal="true">
+      <button class="cn-modal-close" data-close-about aria-label="Close">×</button>
+      <span class="section-kicker">ABOUT CREEPERNODES</span>
+      <h2>Hosting made for communities that want to keep playing.</h2>
+      <p>CreeperNodes is a Minecraft-focused hosting project created by <strong>Avdeshnoob</strong>. The goal is simple: clean management, powerful Ryzen-class hardware, NVMe storage, protected networking and a straightforward client experience.</p>
+      <div class="about-grid">
+        <article><strong>Ryzen-class CPU</strong><span>Performance-focused compute</span></article>
+        <article><strong>NVMe Storage</strong><span>Fast world and plugin loading</span></article>
+        <article><strong>DDoS Defense</strong><span>Network protection layer</span></article>
+        <article><strong>Client Area</strong><span>Servers, expiry and renewals in one place</span></article>
+      </div>
+      <p class="about-note">Actual hardware, locations and protection claims should match the infrastructure you deploy.</p>
+    </section>
+  </div>
+
+  <!-- CART / CHECKOUT -->
+  <div id="checkoutModal" class="cn-modal checkout-modal" aria-hidden="true">
+    <div class="cn-modal-backdrop" data-close-checkout></div>
+    <section class="cn-modal-card checkout-card" role="dialog" aria-modal="true">
+      <button class="cn-modal-close" data-close-checkout aria-label="Close">×</button>
+      <div class="checkout-head"><span class="section-kicker">SECURE ORDER</span><h2>Review your order</h2><p>Choose your plan, pay using the QR/UPI flow, then submit the payment reference for verification.</p></div>
+      <div class="checkout-layout">
+        <div class="checkout-main">
+          <div class="checkout-plan" id="checkoutPlan"></div>
+          <div class="checkout-methods">
+            <button type="button" class="checkout-method active" data-method="upi">UPI / GPay / Paytm</button>
+            <button type="button" class="checkout-method" data-method="paypal">PayPal</button>
+          </div>
+          <div id="upiPayment" class="payment-pane active">
+            <div class="qr-wrap"><img src="QRCode.png" alt="Payment QR code" id="paymentQR"><div><h3>Scan and pay</h3><p>Open any compatible UPI app, scan the QR and pay the exact order amount.</p><strong id="upiAmount">₹0</strong></div></div>
+            <label class="payment-ref">UPI transaction ID / reference number<input id="paymentReference" placeholder="Enter the transaction reference after payment"></label>
+            <button type="button" id="submitPaymentProof" class="button primary full">I have paid — submit for verification</button>
+            <p class="payment-warning">QR payment alone cannot securely tell this static website that money arrived. The order is marked <b>Awaiting verification</b> until a payment gateway/webhook or manual verification is connected.</p>
+          </div>
+          <div id="paypalPayment" class="payment-pane">
+            <h3>PayPal checkout</h3><p>Add your real PayPal business checkout link or API integration here. It is intentionally not faked as a completed payment.</p>
+            <button type="button" class="button ghost full" id="paypalInfoBtn">PayPal setup required</button>
+          </div>
+        </div>
+        <aside class="order-summary"><h3>Order summary</h3><div id="orderSummary"></div><div class="summary-total"><span>Total due</span><strong id="summaryTotal">₹0</strong></div><small>Service provisioning happens only after a verified payment and a real provisioning backend such as Pterodactyl is connected.</small></aside>
+      </div>
+    </section>
+  </div>
+
+  <!-- SEPARATE CLIENT AREA / PANEL DASHBOARD -->
+  <section id="clientAreaView" class="client-area" aria-hidden="true">
+    <aside class="client-sidebar">
+      <div class="client-brand"><span class="creeper-mark"><i></i><i></i><b></b></span><span>Creeper<span>Nodes</span></span></div>
+      <button class="client-nav active" data-client-view="overview">⌂ <span>Dashboard</span></button>
+      <button class="client-nav" data-client-view="servers">▣ <span>My Servers</span></button>
+      <button class="client-nav" data-client-view="orders">▤ <span>Orders</span></button>
+      <button class="client-nav" data-client-view="billing">₹ <span>Billing</span></button>
+      <div class="client-spacer"></div>
+      <button class="client-nav" data-client-view="support">◉ <span>Support</span></button>
+      <button class="client-nav" id="clientSignOut">⇥ <span>Sign out</span></button>
+    </aside>
+    <div class="client-content">
+      <header class="client-topbar"><div><button id="exitClient" class="back-site">← Website</button><span class="client-breadcrumb">Client Area</span></div><div class="client-user"><span id="clientUserInitial">CN</span><div><b id="clientUserName">Client</b><small id="clientUserEmail">client@example.com</small></div></div></header>
+      <main class="client-main">
+        <section class="client-page active" data-client-page="overview">
+          <div class="client-title-row"><div><p class="client-kicker">WELCOME BACK</p><h1>Your hosting, at a glance.</h1><p>Manage your servers, renewals and orders from one place.</p></div><button class="button primary" id="browsePlansBtn">+ Buy a server</button></div>
+          <div class="client-summary-grid"><article><span>Active Servers</span><strong id="activeServerCount">1</strong><small>Running services</small></article><article><span>Expiring Soon</span><strong id="expiringCount">1</strong><small>Check your renewal date</small></article><article><span>Open Orders</span><strong id="openOrderCount">0</strong><small>Pending verification</small></article><article><span>Account Status</span><strong class="status-good">Active</strong><small>Client account</small></article></div>
+          <div class="client-section-head"><div><h2>My servers</h2><p>Click a server to open its management dashboard.</p></div><button class="text-link client-nav-link" data-target="servers">View all →</button></div>
+          <div id="dashboardServerCards" class="dashboard-server-grid"></div>
+        </section>
+        <section class="client-page" data-client-page="servers"><div class="client-title-row"><div><p class="client-kicker">SERVERS</p><h1>My Servers</h1><p>All services attached to your CreeperNodes account.</p></div><button class="button primary" id="buyFromServers">+ New server</button></div><div id="serversList" class="server-list"></div></section>
+        <section class="client-page" data-client-page="orders"><div class="client-title-row"><div><p class="client-kicker">ORDERS</p><h1>Order history</h1><p>Track purchases and payment verification status.</p></div></div><div id="ordersList" class="orders-list"></div></section>
+        <section class="client-page" data-client-page="billing"><div class="client-title-row"><div><p class="client-kicker">BILLING</p><h1>Billing & renewals</h1><p>Renewal dates are shown here. Connect a real billing system before production.</p></div></div><div class="billing-card"><h3>Upcoming expiry</h3><p id="billingExpiry">No active expiry information yet.</p><button class="button primary" id="renewServerBtn">Renew server</button></div></section>
+        <section class="client-page" data-client-page="support"><div class="client-title-row"><div><p class="client-kicker">SUPPORT</p><h1>Need help?</h1><p>Create a ticket once your support backend is connected.</p></div></div><div class="support-card"><h3>Support center</h3><p>For now this is the frontend client area. Connect tickets, Discord or email support here.</p></div></section>
+        <section class="client-page server-detail-page" data-client-page="server-detail"><button class="back-server" id="backToServers">← Back to My Servers</button><div id="serverDetailContent"></div></section>
+      </main>
+    </div>
+  </section>
+
   <!-- Sign in modal: frontend demo only. Connect this UI to a real backend/auth provider before production. -->
   <div id="authModal" class="auth-modal" aria-hidden="true">
     <div class="auth-backdrop" data-auth-close></div>
@@ -325,7 +364,7 @@
       <div class="auth-brand"><span class="creeper-mark"><i></i><i></i><b></b></span><span>Creeper<span>Nodes</span></span></div>
       <p class="auth-kicker">CLIENT AREA ACCESS</p>
       <h2 id="authTitle">Sign in to continue</h2>
-      <p class="auth-subtitle">Sign in to access your client area, continue with a plan, or open your server panel.</p>
+      <p class="auth-subtitle">Sign in to access your separate client dashboard, continue with a plan, or open your server panel.</p>
 
       <div class="auth-tabs" role="tablist">
         <button class="auth-tab active" type="button" data-auth-tab="signin">Sign in</button>
