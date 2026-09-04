@@ -1,16 +1,322 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>CreeperNodes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CreeperNodes - High performance Minecraft and game server hosting.">
+  <title>CreeperNodes | High Performance Minecraft Hosting</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="offer-bar">
+    <div class="offer-inner">
+      <span class="offer-pill">⚡ OFFER</span>
+      <span>Get <b>10% OFF</b> on Premium Plans with code</span>
+      <button class="coupon" data-copy="CREEPER10">CREEPER10 <span>⧉</span></button>
+      <span class="offer-divider"></span>
+      <a href="#plans">Claim Now →</a>
+    </div>
+    <button class="offer-close" aria-label="Close offer">×</button>
+  </div>
 
-    <h1>Hello Minecraft!</h1>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a class="brand" href="#home">
+        <span class="creeper-mark" aria-hidden="true"><i></i><i></i><b></b></span>
+        <span>Creeper<span>Nodes</span></span>
+      </a>
 
-    <p>My Minecraft hosting website is working.</p>
+      <button class="menu-toggle" aria-label="Open navigation">☰</button>
 
+      <div class="nav-links">
+        <a class="active" href="#home">⌂ Home</a>
+        <div class="nav-dropdown">
+          <button>▣ Services <span>⌄</span></button>
+          <div class="dropdown-menu">
+            <a href="#plans">Minecraft Hosting</a>
+            <a href="#plans">Premium Servers</a>
+            <a href="#infrastructure">DDoS Protection</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button>🎮 Games <span>⌄</span></button>
+          <div class="dropdown-menu">
+            <a href="#plans">Minecraft</a>
+            <a href="#plans">Network Hosting</a>
+            <a href="#plans">Coming Soon</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button>◎ Resources <span>⌄</span></button>
+          <div class="dropdown-menu">
+            <a href="#faq">Knowledge Base</a>
+            <a href="#locations">Locations</a>
+            <a href="#faq">Status</a>
+          </div>
+        </div>
+        <a href="#faq">◉ Support</a>
+      </div>
+
+      <div class="nav-actions">
+        <a class="panel-select" href="#panel">▦ Panels <span>⌄</span></a>
+        <a class="client-button" href="#plans">▣ Client Area</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <div class="eyebrow">⚡ High Performance Gaming Without Lag</div>
+          <h1>Host Your Own<br><span>Minecraft</span> Servers</h1>
+          <p>Experience powerful hardware, low-latency routing, dependable uptime and friendly support built for your Minecraft community.</p>
+          <div class="hero-buttons">
+            <a class="button primary" href="#plans">Get started <span>→</span></a>
+            <a class="button ghost" href="#features">Learn More <span>→</span></a>
+          </div>
+          <div class="hero-meta">
+            <span>⚡ India</span><b>•</b><span>Fast setup</span><b>•</b><span>Asia</span><strong>+10% today</strong>
+          </div>
+        </div>
+
+        <div class="hero-cards">
+          <article class="float-card card-setup">
+            <div class="card-icon">▣</div>
+            <div><h3>Quick Setup</h3><p>Launch your server in under 60 seconds</p></div>
+          </article>
+          <article class="float-card card-ddos">
+            <div class="card-icon">♢</div>
+            <div><h3>DDoS Defense</h3><p>Always-on network protection</p></div>
+          </article>
+          <article class="float-card card-uptime">
+            <div class="card-icon">◷</div>
+            <div><h3><span data-counter="99.9">99.9</span>% Uptime</h3><p>Dependable hosting you can trust</p></div>
+          </article>
+          <article class="float-card card-support">
+            <div class="card-icon">◉</div>
+            <div><h3>24/7 Support</h3><p>Help whenever you need it</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section container">
+      <div class="section-heading">
+        <span class="section-kicker">WHY CREEPERNODES</span>
+        <h2>Built for players. Ready for communities.</h2>
+        <p>Everything you need for a smooth Minecraft server experience without unnecessary complexity.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="feature-icon">⚡</span><h3>Peak Performance</h3><p>Fast CPUs and NVMe storage tuned for responsive gameplay.</p></article>
+        <article class="feature-card"><span class="feature-icon">◷</span><h3>Quick Setup</h3><p>Get online quickly with simple deployment and easy configuration.</p></article>
+        <article class="feature-card"><span class="feature-icon">◈</span><h3>Flexible Plans</h3><p>Start small and scale your resources as your community grows.</p></article>
+        <article class="feature-card"><span class="feature-icon">♢</span><h3>Protected Network</h3><p>Network-level protection designed to keep your players connected.</p></article>
+      </div>
+    </section>
+
+    <section class="advantage section">
+      <div class="container advantage-grid">
+        <div>
+          <span class="section-kicker">THE CREEPERNODES ADVANTAGE</span>
+          <h2>Performance that lets your world stay alive.</h2>
+          <p>From small survival worlds to growing communities, CreeperNodes is designed around fast hardware, simple management and dependable support.</p>
+          <a href="#plans" class="text-link">Explore hosting plans →</a>
+        </div>
+        <div class="advantage-list">
+          <article><span>♢</span><div><h3>Strong DDoS Defense</h3><p>Layered protection for stable, uninterrupted gameplay.</p></div></article>
+          <article><span>⚙</span><div><h3>High-Speed CPUs</h3><p>Modern processors selected for demanding Minecraft workloads.</p></div></article>
+          <article><span>◉</span><div><h3>24/7 Assistance</h3><p>Friendly help for setup, troubleshooting and questions.</p></div></article>
+        </div>
+      </div>
+      <div class="container stats-grid">
+        <div><strong data-count="1000">0</strong><span>Active Services</span></div>
+        <div><strong data-count="12">0</strong><span>Server Plans</span></div>
+        <div><strong data-count="8">0</strong><span>Locations Planned</span></div>
+        <div><strong data-count="24">0</strong><span>Hour Support</span></div>
+      </div>
+    </section>
+
+    <section id="panel" class="section panel-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">POWERFUL CONTROL PANEL</span>
+          <h2>Everything you need. One clean panel.</h2>
+          <p>Manage your server without digging through complicated menus.</p>
+        </div>
+
+        <div class="panel-layout">
+          <div class="panel-tabs" role="tablist">
+            <button class="panel-tab active" data-panel="console">⌘ Console Access</button>
+            <button class="panel-tab" data-panel="mods">◫ Mods Installer</button>
+            <button class="panel-tab" data-panel="plugins">◈ Plugin Installer</button>
+            <button class="panel-tab" data-panel="files">▤ File Manager</button>
+            <button class="panel-tab" data-panel="versions">↻ Version Changer</button>
+          </div>
+
+          <div class="panel-preview">
+            <div class="panel-top"><span class="online-dot"></span> creepernodes.panel <span class="preview-actions">− □ ×</span></div>
+            <div class="panel-screen active" id="console">
+              <div class="console-lines"><span>root@creepernodes:~$</span> Starting Minecraft server...<br><span>[INFO]</span> Loading world: survival<br><span>[INFO]</span> Done! Server ready in 1.82s<br><span class="green">● ONLINE</span> 0/20 players</div>
+            </div>
+            <div class="panel-screen" id="mods"><div class="fake-app"><h3>Mod Library</h3><div class="app-list"><span>Fabric API <button>Install</button></span><span>JourneyMap <button>Install</button></span><span>WorldEdit <button>Install</button></span></div></div></div>
+            <div class="panel-screen" id="plugins"><div class="fake-app"><h3>Plugin Installer</h3><div class="app-list"><span>EssentialsX <button>Install</button></span><span>LuckPerms <button>Install</button></span><span>Vault <button>Install</button></span></div></div></div>
+            <div class="panel-screen" id="files"><div class="fake-app"><h3>File Manager</h3><div class="file-list"><span>📁 plugins</span><span>📁 world</span><span>📄 server.properties</span><span>📄 eula.txt</span></div></div></div>
+            <div class="panel-screen" id="versions"><div class="fake-app"><h3>Server Version</h3><div class="version-cards"><button>Paper 1.21.1</button><button>Purpur 1.21.1</button><button>Fabric 1.21.1</button></div></div></div>
+          </div>
+        </div>
+
+        <div class="panel-benefits">
+          <article><span>◷</span><div><h3>Real-time Monitoring</h3><p>Track CPU, memory, storage and network activity.</p></div></article>
+          <article><span>⌘</span><div><h3>Advanced Console</h3><p>Run commands and monitor your server in real time.</p></div></article>
+          <article><span>▤</span><div><h3>File Management</h3><p>Manage files with a clean, browser-based interface.</p></div></article>
+          <article><span>◉</span><div><h3>Database Ready</h3><p>Future-ready architecture for databases and backups.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="infrastructure" class="section infrastructure">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">BUILT FOR PERFORMANCE</span>
+          <h2>Optimized for gaming from the ground up.</h2>
+        </div>
+        <div class="infra-grid">
+          <article><span>⚙</span><h3>Enterprise Hardware</h3><p>Modern CPUs, fast NVMe storage and high-performance memory.</p><ul><li>High clock speeds</li><li>NVMe storage</li><li>Modern DDR memory</li></ul></article>
+          <article><span>♢</span><h3>Advanced Protection</h3><p>Network protection designed around gaming traffic and availability.</p><ul><li>Always-on filtering</li><li>Automated mitigation</li><li>Network analytics</li></ul></article>
+          <article><span>◉</span><h3>Expert Support</h3><p>Get help from people who understand game server hosting.</p><ul><li>Support tickets</li><li>Community support</li><li>Setup assistance</li></ul></article>
+          <article><span>◎</span><h3>Optimized Network</h3><p>Routing and locations selected with latency in mind.</p><ul><li>Low-latency routing</li><li>DDoS-aware network</li><li>TCP/UDP optimization</li></ul></article>
+          <article><span>◈</span><h3>Automated Backups</h3><p>Protect important worlds with scheduled recovery points.</p><ul><li>Snapshots</li><li>Simple restores</li><li>Backup options</li></ul></article>
+          <article><span>🎮</span><h3>Gaming Ecosystem</h3><p>Tools for modern communities and server management.</p><ul><li>Mod support</li><li>Plugin support</li><li>Community tools</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="security-section">
+      <div class="container security-card">
+        <div class="security-copy">
+          <span class="section-kicker">NETWORK SECURITY</span>
+          <h2>Protected. Stable. Ready.</h2>
+          <p>Keep your community focused on gameplay with network protection built around availability.</p>
+          <div class="security-tags"><span>✓ Always-On</span><span>✓ Network Aware</span><span>✓ Low Disruption</span></div>
+        </div>
+        <div class="security-visual">
+          <div class="shield">♢</div>
+          <span class="protected">PROTECTED</span>
+          <strong>Night Guard</strong>
+          <small>Network Protection</small>
+          <div class="security-lines"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" class="section pricing-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">MINECRAFT HOSTING</span>
+          <h2>Choose your CreeperNodes plan.</h2>
+          <p>Example plans below — replace pricing and specifications with your actual offers before accepting customers.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card"><h3>Grass</h3><p class="plan-note">For small worlds</p><div class="price">₹49<span>/mo</span></div><ul><li>✓ 2 GB RAM</li><li>✓ 1 vCPU</li><li>✓ 15 GB NVMe</li><li>✓ DDoS Protection</li></ul><a href="#" class="button ghost full">Choose Plan</a></article>
+          <article class="price-card popular"><span class="popular-badge">MOST POPULAR</span><h3>Iron</h3><p class="plan-note">For active communities</p><div class="price">₹99<span>/mo</span></div><ul><li>✓ 4 GB RAM</li><li>✓ 2 vCPU</li><li>✓ 30 GB NVMe</li><li>✓ Priority Support</li></ul><a href="#" class="button primary full">Choose Plan</a></article>
+          <article class="price-card"><h3>Diamond</h3><p class="plan-note">For larger servers</p><div class="price">₹199<span>/mo</span></div><ul><li>✓ 8 GB RAM</li><li>✓ 3 vCPU</li><li>✓ 60 GB NVMe</li><li>✓ DDoS Protection</li></ul><a href="#" class="button ghost full">Choose Plan</a></article>
+          <article class="price-card"><h3>Netherite</h3><p class="plan-note">For serious networks</p><div class="price">₹399<span>/mo</span></div><ul><li>✓ 16 GB RAM</li><li>✓ 4 vCPU</li><li>✓ 100 GB NVMe</li><li>✓ Priority Support</li></ul><a href="#" class="button ghost full">Choose Plan</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="locations" class="section locations-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">NETWORK SPEED TEST</span>
+          <h2>Find your best location.</h2>
+          <p>Test your browser latency to sample locations before choosing a server region.</p>
+          <button id="pingButton" class="button primary">Test My Ping ⚡</button>
+        </div>
+        <div class="location-grid">
+          <article><span>🇮🇳</span><h3>Mumbai</h3><p>India</p><strong data-ping="Mumbai">—</strong></article>
+          <article><span>🇸🇬</span><h3>Singapore</h3><p>Asia</p><strong data-ping="Singapore">—</strong></article>
+          <article><span>🇩🇪</span><h3>Frankfurt</h3><p>Germany</p><strong data-ping="Frankfurt">—</strong></article>
+          <article><span>🇦🇪</span><h3>Dubai</h3><p>Middle East</p><strong data-ping="Dubai">—</strong></article>
+        </div>
+        <p class="ping-note">Demo UI latency test. Replace with a real endpoint-based latency test when your infrastructure is ready.</p>
+      </div>
+    </section>
+
+    <section class="section community-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">OUR COMMUNITY</span>
+          <h2>Built for creators and communities.</h2>
+          <p>When you have real partners or testimonials, add them here.</p>
+        </div>
+        <div class="creator-grid">
+          <article><div class="avatar">CN</div><h3>Your Creator</h3><p>Community Partner</p></article>
+          <article><div class="avatar">CN</div><h3>Your Network</h3><p>Server Community</p></article>
+          <article><div class="avatar">CN</div><h3>Your Partner</h3><p>Content Creator</p></article>
+          <article><div class="avatar">CN</div><h3>Your Team</h3><p>Gaming Community</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews-section section">
+      <div class="container">
+        <div class="review-card">
+          <div><span class="section-kicker">CUSTOMER FEEDBACK</span><h2>Earn trust with real reviews.</h2><p>Connect a verified review platform once you start serving real customers.</p></div>
+          <div class="rating"><strong>★★★★★</strong><span>Reviews coming soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq-section">
+      <div class="container faq-container">
+        <div class="section-heading">
+          <span class="section-kicker">NEED HELP?</span>
+          <h2>Questions, answered.</h2>
+          <div class="faq-search"><input id="faqSearch" type="search" placeholder="Search questions..."></div>
+        </div>
+
+        <div class="faq-filters">
+          <button class="faq-filter active" data-filter="all">All</button>
+          <button class="faq-filter" data-filter="general">General</button>
+          <button class="faq-filter" data-filter="hosting">Hosting</button>
+          <button class="faq-filter" data-filter="billing">Billing</button>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item" data-category="billing"><button>What payment methods do you accept?<span>+</span></button><div><p>Set this according to the payment gateways you actually integrate. Do not advertise payment methods until they are live.</p></div></article>
+          <article class="faq-item" data-category="billing"><button>Do you offer refunds?<span>+</span></button><div><p>Publish your real refund policy and terms before taking payments.</p></div></article>
+          <article class="faq-item" data-category="hosting"><button>Where are your data centers located?<span>+</span></button><div><p>List your actual node locations once your infrastructure is configured.</p></div></article>
+          <article class="faq-item" data-category="hosting"><button>What games does CreeperNodes support?<span>+</span></button><div><p>CreeperNodes is currently designed around Minecraft hosting; add supported games as they become available.</p></div></article>
+          <article class="faq-item" data-category="general"><button>How quickly can a server be deployed?<span>+</span></button><div><p>Deployment time depends on the panel and provisioning system you connect to this frontend.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-card">
+        <span class="live-badge">NOW BUILDING</span>
+        <h2>Ready to launch your next Minecraft world?</h2>
+        <p>Start with a plan, deploy your server and grow your community with CreeperNodes.</p>
+        <div><a href="#plans" class="button primary">Explore Plans →</a><button id="dismissOffer" class="button ghost">Maybe later</button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><a class="brand" href="#home"><span class="creeper-mark"><i></i><i></i><b></b></span><span>Creeper<span>Nodes</span></span></a><p>Performance-focused hosting for Minecraft communities.</p></div>
+      <div><h4>Services</h4><a href="#plans">Minecraft Hosting</a><a href="#infrastructure">Network Protection</a><a href="#panel">Control Panel</a></div>
+      <div><h4>Company</h4><a href="#features">About</a><a href="#locations">Locations</a><a href="#faq">Support</a></div>
+      <div><h4>Legal</h4><a href="#faq">Terms</a><a href="#faq">Privacy</a><a href="#faq">Refund Policy</a></div>
+    </div>
+    <div class="container footer-bottom">© <span id="year"></span> CreeperNodes. All rights reserved.</div>
+  </footer>
+
+  <div id="toast" class="toast">Copied!</div>
+  <script src="script.js"></script>
 </body>
-
 </html>
