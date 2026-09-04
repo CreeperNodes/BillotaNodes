@@ -1,166 +1,111 @@
-const publicSite = document.getElementById("publicSite");
-const authView = document.getElementById("authView");
-const dashboardView = document.getElementById("dashboardView");
-const toastBox = document.getElementById("toast");
+// CreeperNodes front-end interactions
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = (selector, scope = document) => scope.querySelector(selector);
+  const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
-const servers = {
-  survival: {
-    name: "Survival SMP",
-    address: "play.creepernodes.com:25565",
-    expiry: "18 Oct 2026",
-    remaining: "46 days remaining",
-    cpu: "22.5%",
-    ram: "2.19 GiB",
-    disk: "28.4 GiB",
-    network: "128 Mbps"
-  },
-  skyblock: {
-    name: "Skyblock Test",
-    address: "sb.creepernodes.com:25565",
-    expiry: "20 Sep 2026",
-    remaining: "12 days remaining",
-    cpu: "13.8%",
-    ram: "1.06 GiB",
-    disk: "12.1 GiB",
-    network: "74 Mbps"
-  }
-};
+  // Offer bar
+  $("#offerClose")?.addEventListener("click", () => $(".offer-bar").remove());
 
-function hideAllMainViews() {
-  publicSite.classList.add("hidden-view");
-  authView.classList.add("hidden-view");
-  dashboardView.classList.add("hidden-view");
-}
-
-function showPublic() {
-  hideAllMainViews();
-  publicSite.classList.remove("hidden-view");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function openAuth() {
-  hideAllMainViews();
-  authView.classList.remove("hidden-view");
-  window.scrollTo(0, 0);
-}
-
-function openDashboard() {
-  hideAllMainViews();
-  dashboardView.classList.remove("hidden-view");
-  showPanelView("overview");
-  window.scrollTo(0, 0);
-}
-
-function showPanelView(viewName) {
-  document.querySelectorAll(".panel-view").forEach(v => v.classList.remove("active-panel-view"));
-  const target = document.getElementById(viewName + "Panel");
-  if (target) target.classList.add("active-panel-view");
-
-  document.querySelectorAll(".side-item[data-view]").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.view === viewName);
+  // Mobile navigation
+  $("#mobileToggle")?.addEventListener("click", () => {
+    $("#mainNav").classList.toggle("open");
   });
 
+  // Dropdown helper
+  function toggleDropdown(buttonId, menuId) {
+    const button = $(buttonId);
+    const menu = $(menuId);
+    button?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      $$(".dropdown-menu").forEach(m => {
+        if (m !== menu) m.classList.remove("open");
+      });
+      menu.classList.toggle("open");
+    });
+  }
+  toggleDropdown("#servicesButton", "#servicesMenu");
+  toggleDropdown("#panelsButton", "#panelsMenu");
+
+  document.addEventListener("click", () => $$(".dropdown-menu").forEach(m => m.classList.remove("open")));
+
+  // Smooth scroll buttons
+  $$("[data-scroll]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.getElementById(button.dataset.scroll)?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Login / client area
+  const loginModal = $("#loginModal");
+  const openLogin = () => loginModal.classList.add("show");
+  $("#clientButton")?.addEventListener("click", openLogin);
+
+  // Close modals
+  $$("[data-close]").forEach(button => {
+    button.addEventListener("click", () => document.getElementById(button.dataset.close)?.classList.remove("show"));
+  });
+  $$(".modal-backdrop").forEach(backdrop => {
+    backdrop.addEventListener("click", e => {
+      if (e.target === backdrop) backdrop.classList.remove("show");
+    });
+  });
+
+  // Demo login
+  $("#loginForm")?.addEventListener("submit", e => {
+    e.preventDefault();
+    loginModal.classList.remove("show");
+    document.getElementById("dashboard")?.scrollIntoView({ behavior: "smooth" });
+  });
+
+  // Demo button
+  $("#viewDemo")?.addEventListener("click", () => {
+    document.getElementById("dashboard")?.scrollIntoView({ behavior: "smooth" });
+  });
+
+  // Dashboard panel links
+  $$("[data-panel]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.getElementById("dashboard")?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Sidebar tabs
   const titles = {
-    overview: ["Dashboard", "Welcome back. Here is your hosting overview."],
-    servers: ["My Servers", "View and manage all your hosting services."],
-    console: ["Console", "Manage your selected server through the live console."],
-    files: ["Files", "Manage files for your server."],
-    backups: ["Backups", "Create and restore server backups."],
-    network: ["Network", "View network allocations and usage."],
-    settings: ["Settings", "Manage your account and panel preferences."]
+    overview: "My Servers",
+    files: "Files",
+    servers: "All Servers",
+    billing: "Billing & Expiry",
+    settings: "Account Settings"
   };
 
-  if (titles[viewName]) {
-    document.getElementById("dashTitle").textContent = titles[viewName][0];
-    document.getElementById("dashSubtitle").textContent = titles[viewName][1];
-  }
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
+  $$(".side-item[data-tab]").forEach(item => {
+    item.addEventListener("click", () => {
+      $$(".side-item[data-tab]").forEach(x => x.classList.remove("active"));
+      item.classList.add("active");
+      $("#dashTitle").textContent = titles[item.dataset.tab] || "Dashboard";
+    });
+  });
 
-document.querySelectorAll(".side-item[data-view]").forEach(btn => {
-  btn.addEventListener("click", () => showPanelView(btn.dataset.view));
-});
+  // Open server details
+  const serverModal = $("#serverModal");
+  $$(".server-row").forEach(row => {
+    row.addEventListener("click", () => {
+      const name = $(".server-name strong", row)?.textContent || "Game Server";
+      const expiry = $(".server-expiry strong", row)?.textContent || "Not set";
+      $("#serverModalName").textContent = name;
+      $("#modalExpiry").textContent = expiry;
+      serverModal.classList.add("show");
+    });
+  });
 
-function openServer(serverKey) {
-  const server = servers[serverKey] || servers.survival;
+  // New server demo
+  $("#newServerButton")?.addEventListener("click", () => {
+    alert("Connect this button to your real order/provisioning system when your backend is ready.");
+  });
 
-  document.getElementById("selectedServerName").textContent = server.name;
-  document.getElementById("selectedServerAddress").textContent = server.address;
-  document.getElementById("infoAddress").textContent = server.address;
-  document.getElementById("expiryDate").textContent = server.expiry;
-  document.getElementById("expiryCountdown").textContent = server.remaining;
-  document.getElementById("cpuText").textContent = server.cpu;
-  document.getElementById("ramText").textContent = server.ram;
-  document.getElementById("diskText").textContent = server.disk;
-  document.getElementById("netText").textContent = server.network;
-
-  document.getElementById("cpuBar").style.width = serverKey === "skyblock" ? "13.8%" : "22.5%";
-  document.getElementById("ramBar").style.width = serverKey === "skyblock" ? "34%" : "45.3%";
-  document.getElementById("diskBar").style.width = serverKey === "skyblock" ? "24%" : "56.8%";
-  document.getElementById("netBar").style.width = serverKey === "skyblock" ? "48%" : "68%";
-
-  showPanelView("server");
-  document.getElementById("dashTitle").textContent = server.name;
-  document.getElementById("dashSubtitle").textContent = "Game server management panel";
-}
-
-document.querySelectorAll(".auth-tab").forEach(tab => {
-  tab.addEventListener("click", () => {
-    document.querySelectorAll(".auth-tab").forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-
-    const login = document.getElementById("loginForm");
-    const signup = document.getElementById("signupForm");
-    if (tab.dataset.tab === "login") {
-      login.classList.remove("hidden-form");
-      signup.classList.add("hidden-form");
-    } else {
-      signup.classList.remove("hidden-form");
-      login.classList.add("hidden-form");
-    }
+  // Logout demo
+  $("#logoutButton")?.addEventListener("click", () => {
+    alert("Demo logout. A real login system needs a backend such as Firebase, Supabase, or your own API.");
+    document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
   });
 });
-
-document.getElementById("loginForm").addEventListener("submit", e => {
-  e.preventDefault();
-  localStorage.setItem("creepernodesDemoUser", "signed-in");
-  openDashboard();
-  toast("Signed in successfully");
-});
-
-document.getElementById("signupForm").addEventListener("submit", e => {
-  e.preventDefault();
-  localStorage.setItem("creepernodesDemoUser", "signed-in");
-  openDashboard();
-  toast("Account created in demo mode");
-});
-
-document.getElementById("commandForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const input = document.getElementById("commandInput");
-  const command = input.value.trim();
-  if (!command) return;
-
-  const output = document.getElementById("consoleOutput");
-  const now = new Date().toLocaleTimeString([], { hour12: false });
-  output.textContent += `\n[${now} INFO]: > ${command}\n[${now} INFO]: Command accepted by demo panel.`;
-  output.scrollTop = output.scrollHeight;
-  input.value = "";
-});
-
-function clearConsole() {
-  document.getElementById("consoleOutput").textContent = "[Console cleared]\n";
-}
-
-function toast(message) {
-  toastBox.textContent = message;
-  toastBox.classList.add("show-toast");
-  clearTimeout(window.__toastTimer);
-  window.__toastTimer = setTimeout(() => toastBox.classList.remove("show-toast"), 2800);
-}
-
-document.getElementById("mobileToggle").addEventListener("click", () => {
-  document.getElementById("mainNav").classList.toggle("open");
-});
-
-document.getElementById("year").textContent = new Date().getFullYear();

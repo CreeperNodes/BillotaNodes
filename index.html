@@ -3,366 +3,256 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CreeperNodes — Game Server Hosting</title>
+  <title>CreeperNodes — Minecraft Hosting</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="site-bg"></div>
 
-  <!-- PUBLIC WEBSITE -->
-  <main id="publicSite">
-    <div class="announcement">
-      <span>⚡</span> Powerful Minecraft hosting with CreeperNodes
-      <button class="announcement-close" aria-label="Close" onclick="this.parentElement.style.display='none'">×</button>
-    </div>
+  <!-- Top offer bar -->
+  <div class="offer-bar">
+    <span>⚡ Powerful Minecraft hosting with CreeperNodes</span>
+    <button id="offerClose" aria-label="Close offer">×</button>
+  </div>
 
-    <header class="navbar">
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="nav-wrap">
       <a href="#home" class="brand" aria-label="CreeperNodes home">
-        <span class="creeper-mark">☷</span>
+        <span class="brand-mark">✦</span>
         <span>Creeper<span>Nodes</span></span>
       </a>
 
       <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
 
-      <nav id="mainNav">
-        <a href="#home">Home</a>
-        <div class="nav-drop">
-          <button class="nav-drop-btn">Services <span>⌄</span></button>
-          <div class="nav-menu">
-            <a href="#services">🎮 Game Hosting</a>
-            <a href="#services">▣ VPS Hosting</a>
-            <a href="#services">◎ Web Hosting</a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#home" class="active">Home</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-drop-btn" id="servicesButton">Services <span>⌄</span></button>
+          <div class="dropdown-menu" id="servicesMenu">
+            <a href="#services"><b>🎮 Game Hosting</b><small>High-performance game servers</small></a>
+            <a href="#services"><b>▣ VPS Hosting</b><small>Flexible virtual servers</small></a>
+            <a href="#services"><b>◎ Web Hosting</b><small>Fast and simple web hosting</small></a>
           </div>
         </div>
-        <a href="#games">Games</a>
+
+        <a href="#features">Games</a>
         <a href="#features">Features</a>
         <a href="#support">Support</a>
-        <div class="nav-drop">
-          <button class="nav-drop-btn">Panels <span>⌄</span></button>
-          <div class="nav-menu">
-            <button onclick="openDashboard()">🎮 Game Panel</button>
-            <button onclick="openDashboard()">▣ VPS Panel</button>
-            <button onclick="openDashboard()">◎ Web Panel</button>
-          </div>
-        </div>
       </nav>
 
       <div class="nav-actions">
-        <button class="panel-btn" onclick="openDashboard()">▦ Panels</button>
-        <button class="client-btn" onclick="openAuth()">▣ Client Area</button>
+        <div class="nav-dropdown panels-dropdown">
+          <button class="panel-button" id="panelsButton">▦ Panels <span>⌄</span></button>
+          <div class="dropdown-menu panel-menu" id="panelsMenu">
+            <a href="#dashboard"><b>🎮 Game Panel</b><small>Manage your game servers</small></a>
+            <a href="#dashboard"><b>▤ VPS Panel</b><small>Manage your VPS instances</small></a>
+            <a href="#dashboard"><b>◎ Web Panel</b><small>Manage your web hosting</small></a>
+          </div>
+        </div>
+        <button class="client-button" id="clientButton">▣ Client Area</button>
       </div>
-    </header>
+    </div>
+  </header>
 
+  <!-- Hero -->
+  <main>
     <section class="hero" id="home">
-      <div class="hero-copy">
-        <div class="eyebrow">⚡ HIGH PERFORMANCE GAME HOSTING</div>
-        <h1>Host your own<br><span>Minecraft</span> Server</h1>
-        <p>Fast, reliable and simple game hosting built for communities, creators and growing Minecraft networks.</p>
-        <div class="hero-actions">
-          <button class="primary-btn" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Get Started <span>→</span></button>
-          <button class="ghost-btn" onclick="openDashboard()">View Demo <span>↗</span></button>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <div class="eyebrow">⚡ HIGH PERFORMANCE GAME HOSTING</div>
+          <h1>Host your own<br><span>Minecraft</span> Server</h1>
+          <p>Fast, reliable and simple game hosting built for communities, creators and growing Minecraft networks.</p>
+          <div class="hero-buttons">
+            <button class="primary-btn" data-scroll="services">Get Started <span>→</span></button>
+            <button class="secondary-btn" id="viewDemo">View Demo ↗</button>
+          </div>
+          <div class="hero-stats">⚡ Global nodes &nbsp;•&nbsp; 99.9% uptime &nbsp;•&nbsp; 24/7 support</div>
         </div>
-        <div class="hero-stats">
-          <span>⚡ Global nodes</span><i></i>
-          <span>99.9% uptime</span><i></i>
-          <span class="accent">24/7 support</span>
-        </div>
-      </div>
 
-      <div class="hero-panels">
-        <div class="floating-card quick">
-          <div class="card-icon">▣</div>
-          <div><b>Quick Setup</b><p>Launch in under 60 seconds</p></div>
-        </div>
-        <div class="floating-card shield">
-          <div class="card-icon">⬡</div>
-          <div><b>DDoS Protection</b><p>Built to protect your server</p></div>
-        </div>
-        <div class="floating-card uptime">
-          <div class="card-icon">◷</div>
-          <div><b>99.9% Uptime</b><p>Reliable infrastructure</p></div>
-        </div>
-        <div class="floating-card support">
-          <div class="card-icon">◉</div>
-          <div><b>24/7 Support</b><p>Help whenever you need it</p></div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">▣</div>
+            <h3>Quick Setup</h3>
+            <p>Launch your game server in under 60 seconds</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">◈</div>
+            <h3>DDoS Defense</h3>
+            <p>Enterprise-level protection for your servers</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">◷</div>
+            <h3>99.9% Uptime</h3>
+            <p>Reliable infrastructure you can depend on</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">◉</div>
+            <h3>24/7 Support</h3>
+            <p>Get help whenever you need it</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section services-section" id="services">
-      <div class="section-head">
-        <div class="eyebrow">HOSTING BUILT FOR YOU</div>
-        <h2>Choose your <span>power</span></h2>
-        <p>Simple plans with the performance needed for your next project.</p>
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="section-heading">
+        <span class="eyebrow">CREEPERNODES SERVICES</span>
+        <h2>Everything you need to <span>build and play</span></h2>
+        <p>Choose a service and manage everything from one clean client area.</p>
       </div>
+
       <div class="service-grid">
-        <article class="service-card featured-service">
-          <div class="service-top"><span class="service-icon">🎮</span><span class="popular-tag">POPULAR</span></div>
-          <h3>Minecraft Hosting</h3>
-          <p>Instant deployment, modern hardware and full control of your Minecraft server.</p>
-          <button onclick="openDashboard()">Open Game Panel →</button>
+        <article class="service-card">
+          <div class="service-top"><span>🎮</span><span class="tag">Popular</span></div>
+          <h3>Game Hosting</h3>
+          <p>Deploy Minecraft and other game servers with powerful resources and easy management.</p>
+          <button class="card-link" data-panel="game">Open Game Panel →</button>
         </article>
         <article class="service-card">
-          <div class="service-top"><span class="service-icon">▣</span></div>
+          <div class="service-top"><span>▤</span></div>
           <h3>VPS Hosting</h3>
-          <p>Flexible virtual servers for bots, applications and custom workloads.</p>
-          <button onclick="openDashboard()">Explore VPS →</button>
+          <p>Flexible virtual servers for projects, bots, websites and custom workloads.</p>
+          <button class="card-link" data-panel="vps">Open VPS Panel →</button>
         </article>
         <article class="service-card">
-          <div class="service-top"><span class="service-icon">◎</span></div>
+          <div class="service-top"><span>◎</span></div>
           <h3>Web Hosting</h3>
-          <p>Launch your website with a clean control experience and fast infrastructure.</p>
-          <button onclick="openDashboard()">Explore Web →</button>
+          <p>Simple hosting for your website with a clean dashboard and quick setup.</p>
+          <button class="card-link" data-panel="web">Open Web Panel →</button>
         </article>
       </div>
     </section>
 
-    <section class="section games-section" id="games">
-      <div class="section-head">
-        <div class="eyebrow">SUPPORTED GAMES</div>
-        <h2>Play more. <span>Manage less.</span></h2>
+    <!-- Dashboard preview -->
+    <section class="dashboard-section" id="dashboard">
+      <div class="section-heading left">
+        <span class="eyebrow">CLIENT AREA PREVIEW</span>
+        <h2>Your servers. <span>One dashboard.</span></h2>
+        <p>See all active servers first. Click a server when you want to manage it.</p>
       </div>
-      <div class="game-row">
-        <div class="game-card active-game"><b>Minecraft Java</b><small>Paper • Purpur • Fabric • Forge</small></div>
-        <div class="game-card"><b>Minecraft Bedrock</b><small>Fast cross-platform hosting</small></div>
-        <div class="game-card"><b>More coming soon</b><small>Grow with CreeperNodes</small></div>
+
+      <div class="dashboard-shell">
+        <aside class="sidebar">
+          <div class="side-logo">✦</div>
+          <button class="side-item active" data-tab="overview" title="Overview">⌂</button>
+          <button class="side-item" data-tab="files" title="Files">▰</button>
+          <button class="side-item" data-tab="servers" title="Servers">▤</button>
+          <button class="side-item" data-tab="billing" title="Billing">▣</button>
+          <div class="side-spacer"></div>
+          <button class="side-item" data-tab="settings" title="Settings">⚙</button>
+          <button class="side-item logout" id="logoutButton" title="Logout">⇥</button>
+        </aside>
+
+        <div class="dashboard-main">
+          <div class="dash-header">
+            <div>
+              <span class="dash-kicker">CLIENT AREA</span>
+              <h3 id="dashTitle">My Servers</h3>
+            </div>
+            <button class="small-primary" id="newServerButton">+ New Server</button>
+          </div>
+
+          <div class="server-summary">
+            <div><span>Active Servers</span><strong id="activeCount">2</strong></div>
+            <div><span>Monthly Resources</span><strong>50 GB</strong></div>
+            <div><span>Support Status</span><strong class="green">Online</strong></div>
+          </div>
+
+          <div class="server-list" id="serverList">
+            <button class="server-row" data-server="survival">
+              <span class="server-status"></span>
+              <div class="server-name"><strong>Survival Network</strong><small>paid18.creepernodes.example:25584</small></div>
+              <div class="server-plan">Minecraft • Premium</div>
+              <div class="server-expiry"><small>Expires</small><strong>30 Sep 2026</strong></div>
+              <span class="server-arrow">→</span>
+            </button>
+            <button class="server-row" data-server="skyblock">
+              <span class="server-status"></span>
+              <div class="server-name"><strong>Skyblock</strong><small>sb01.creepernodes.example:25565</small></div>
+              <div class="server-plan">Minecraft • Standard</div>
+              <div class="server-expiry"><small>Expires</small><strong>12 Oct 2026</strong></div>
+              <span class="server-arrow">→</span>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section feature-section" id="features">
-      <div class="section-head">
-        <div class="eyebrow">WHY CREEPERNODES</div>
-        <h2>Everything you need <span>to manage servers.</span></h2>
+    <section class="section compact" id="features">
+      <div class="section-heading">
+        <span class="eyebrow">BUILT FOR PERFORMANCE</span>
+        <h2>Hosting that stays <span>out of your way</span></h2>
       </div>
-      <div class="feature-grid">
-        <div class="feature-card"><span>⚡</span><h3>Instant Deploy</h3><p>Create and access your server quickly.</p></div>
-        <div class="feature-card"><span>⌁</span><h3>Easy Backups</h3><p>Keep your worlds protected and recoverable.</p></div>
-        <div class="feature-card"><span>◈</span><h3>DDoS Protection</h3><p>Infrastructure designed for stable gameplay.</p></div>
-        <div class="feature-card"><span>◷</span><h3>Server Expiry</h3><p>Track subscription time and renewal status clearly.</p></div>
+      <div class="mini-grid">
+        <div><b>⚡ Fast deployment</b><p>Get online in seconds.</p></div>
+        <div><b>🛡 DDoS protection</b><p>Protection built into the network.</p></div>
+        <div><b>☁ Easy management</b><p>Everything from one panel.</p></div>
+        <div><b>💬 Real support</b><p>Help when you need it.</p></div>
       </div>
     </section>
-
-    <section class="section support-section" id="support">
-      <div>
-        <div class="eyebrow">NEED HELP?</div>
-        <h2>We're here when <span>your server needs us.</span></h2>
-        <p>Open your client area to manage services and reach support.</p>
-      </div>
-      <button class="primary-btn" onclick="openAuth()">Open Client Area →</button>
-    </section>
-
-    <footer>
-      <div class="brand footer-brand"><span class="creeper-mark">☷</span><span>Creeper<span>Nodes</span></span></div>
-      <p>© <span id="year"></span> CreeperNodes. All rights reserved.</p>
-    </footer>
   </main>
 
-  <!-- AUTH -->
-  <section id="authView" class="hidden-view">
-    <div class="auth-shell">
-      <div class="auth-brand">
-        <button class="back-link" onclick="showPublic()">← Back to website</button>
-        <div class="auth-logo"><span class="creeper-mark">☷</span><b>Creeper<span>Nodes</span></b></div>
-        <h1>Your servers,<br><span>one client area.</span></h1>
-        <p>Sign in to view your services, server expiry dates and hosting panel.</p>
-        <div class="auth-benefits">
-          <div>✓ View all your servers</div>
-          <div>✓ Check expiry and renewals</div>
-          <div>✓ Open your game panel</div>
-        </div>
+  <footer id="support">
+    <div class="brand"><span class="brand-mark">✦</span><span>Creeper<span>Nodes</span></span></div>
+    <p>Game hosting for communities, creators and growing networks.</p>
+    <span>© 2026 CreeperNodes</span>
+  </footer>
+
+  <!-- Login modal -->
+  <div class="modal-backdrop" id="loginModal" aria-hidden="true">
+    <div class="modal">
+      <button class="modal-close" data-close="loginModal">×</button>
+      <div class="modal-logo">✦</div>
+      <h2>Welcome back</h2>
+      <p>Sign in to your CreeperNodes client area.</p>
+      <form id="loginForm">
+        <label>Email<input type="email" placeholder="you@example.com" required></label>
+        <label>Password<input type="password" placeholder="••••••••" required></label>
+        <button class="primary-btn full" type="submit">Sign In →</button>
+      </form>
+      <small class="demo-note">Demo only — login opens the dashboard preview.</small>
+    </div>
+  </div>
+
+  <!-- Server modal -->
+  <div class="modal-backdrop" id="serverModal" aria-hidden="true">
+    <div class="modal wide">
+      <button class="modal-close" data-close="serverModal">×</button>
+      <div class="server-modal-head">
+        <div><span class="dash-kicker">GAME SERVER</span><h2 id="serverModalName">Survival Network</h2></div>
+        <span class="online-badge">● Online</span>
       </div>
-      <div class="auth-card">
-        <div class="auth-tabs">
-          <button class="auth-tab active" data-tab="login">Sign In</button>
-          <button class="auth-tab" data-tab="signup">Create Account</button>
+
+      <div class="top-metrics">
+        <div><span>CPU</span><strong>12%</strong><small>of 500%</small></div>
+        <div><span>Memory</span><strong>2.8 GiB</strong><small>of 31.4 GiB</small></div>
+        <div><span>Disk</span><strong>1.1 GiB</strong><small>of 49.0 GiB</small></div>
+        <div><span>Expiry</span><strong id="modalExpiry">30 Sep 2026</strong><small>Renew before expiry</small></div>
+      </div>
+
+      <div class="server-panel-content">
+        <div class="console">
+          <div class="console-head"><span>Live Console</span><span class="online-badge">● Running</span></div>
+          <pre>[INFO] Starting CreeperNodes server...
+[INFO] Loading Minecraft world...
+[INFO] Plugins enabled successfully.
+[INFO] Network protection active.
+[INFO] Server is ready for players.</pre>
+          <div class="console-input"><input placeholder="Type a command..."><button>Send</button></div>
         </div>
-        <form id="loginForm" class="auth-form">
-          <h2>Welcome back</h2>
-          <p>Enter your details to access your client area.</p>
-          <label>Email<input type="email" placeholder="you@example.com" required></label>
-          <label>Password<input type="password" placeholder="••••••••" required></label>
-          <button class="primary-btn full" type="submit">Sign In →</button>
-          <small>Demo mode: any email/password will open the dashboard.</small>
-        </form>
-        <form id="signupForm" class="auth-form hidden-form">
-          <h2>Create your account</h2>
-          <p>Get ready to manage your CreeperNodes services.</p>
-          <label>Full name<input type="text" placeholder="Your name" required></label>
-          <label>Email<input type="email" placeholder="you@example.com" required></label>
-          <label>Password<input type="password" placeholder="Create a password" required></label>
-          <button class="primary-btn full" type="submit">Create Account →</button>
-          <small>This is a frontend demo until a real backend is connected.</small>
-        </form>
+        <div class="server-side-info">
+          <div class="info-box"><span>Address</span><strong>paid18.creepernodes.example:25584</strong></div>
+          <div class="info-box"><span>Uptime</span><strong>0h 10m 16s</strong></div>
+          <button class="primary-btn full">Manage Server</button>
+          <button class="secondary-btn full">Renew Server</button>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- CLIENT / GAME DASHBOARD -->
-  <section id="dashboardView" class="hidden-view dashboard-view">
-    <aside class="sidebar" id="sidebar">
-      <div class="side-brand"><span class="creeper-mark">☷</span><span class="side-brand-text">Creeper<span>Nodes</span></span></div>
-      <button class="side-item active" data-view="overview">⌂ <span>Dashboard</span></button>
-      <button class="side-item" data-view="servers">▣ <span>My Servers</span></button>
-      <div class="side-separator"></div>
-      <button class="side-item" data-view="console">›_ <span>Console</span></button>
-      <button class="side-item" data-view="files">▰ <span>Files</span></button>
-      <button class="side-item" data-view="backups">◫ <span>Backups</span></button>
-      <button class="side-item" data-view="network">⌁ <span>Network</span></button>
-      <div class="side-spacer"></div>
-      <button class="side-item" data-view="settings">⚙ <span>Settings</span></button>
-      <button class="side-item" onclick="showPublic()">⇥ <span>Exit Panel</span></button>
-    </aside>
-
-    <div class="dash-main">
-      <header class="dash-topbar">
-        <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('collapsed')">☰</button>
-        <div class="dash-title"><h1 id="dashTitle">Dashboard</h1><p id="dashSubtitle">Welcome back. Here is your hosting overview.</p></div>
-        <div class="dash-actions">
-          <button class="notification">♢<span>2</span></button>
-          <button class="profile-btn">CN <b>⌄</b></button>
-        </div>
-      </header>
-
-      <div class="dash-content">
-        <!-- OVERVIEW -->
-        <section class="panel-view active-panel-view" id="overviewPanel">
-          <div class="overview-banner">
-            <div>
-              <span class="eyebrow">CLIENT AREA</span>
-              <h2>Good evening, <span>Player.</span></h2>
-              <p>Manage your active services and keep track of upcoming expiries.</p>
-            </div>
-            <button class="primary-btn" onclick="showPanelView('servers')">My Servers →</button>
-          </div>
-
-          <div class="summary-grid">
-            <div class="summary-card"><span>▣</span><div><small>Active Servers</small><b>2</b><em>1 Minecraft • 1 VPS</em></div></div>
-            <div class="summary-card"><span>◷</span><div><small>Expiring Soon</small><b>1</b><em class="warning-text">Renews in 12 days</em></div></div>
-            <div class="summary-card"><span>✓</span><div><small>Services Online</small><b>2</b><em class="green-text">Everything healthy</em></div></div>
-            <div class="summary-card"><span>◈</span><div><small>Support Tickets</small><b>0</b><em>No open tickets</em></div></div>
-          </div>
-
-          <div class="content-split">
-            <div class="large-panel">
-              <div class="panel-head"><div><h3>Your Servers</h3><p>Click a server to open its management panel.</p></div><button class="text-btn" onclick="showPanelView('servers')">View all →</button></div>
-              <div class="server-list">
-                <button class="server-row" onclick="openServer('survival')">
-                  <div class="server-status online"></div>
-                  <div class="server-main"><b>Survival SMP</b><small>play.creepernodes.com:25565</small></div>
-                  <div class="server-plan">Minecraft • Premium</div>
-                  <div class="expiry good"><b>Expires</b><small>18 Oct 2026</small></div>
-                  <span class="row-arrow">→</span>
-                </button>
-                <button class="server-row" onclick="openServer('skyblock')">
-                  <div class="server-status online"></div>
-                  <div class="server-main"><b>Skyblock Test</b><small>sb.creepernodes.com:25565</small></div>
-                  <div class="server-plan">Minecraft • Starter</div>
-                  <div class="expiry soon"><b>Expires in 12 days</b><small>20 Sep 2026</small></div>
-                  <span class="row-arrow">→</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="large-panel activity-panel">
-              <div class="panel-head"><div><h3>Recent Activity</h3><p>Latest actions on your account.</p></div></div>
-              <div class="activity-list">
-                <div><span class="activity-dot green"></span><p><b>Survival SMP is online</b><small>2 minutes ago</small></p></div>
-                <div><span class="activity-dot blue"></span><p><b>Backup completed</b><small>Today, 14:32</small></p></div>
-                <div><span class="activity-dot amber"></span><p><b>Skyblock expires soon</b><small>12 days remaining</small></p></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SERVERS -->
-        <section class="panel-view" id="serversPanel">
-          <div class="section-panel-head">
-            <div><h2>My Servers</h2><p>Select a service to open its control panel.</p></div>
-            <button class="primary-btn small-btn">+ Order Server</button>
-          </div>
-          <div class="server-card-grid">
-            <article class="server-card" onclick="openServer('survival')">
-              <div class="server-card-top"><span class="online-pill">● Online</span><span>⋮</span></div>
-              <div class="server-card-icon">☷</div>
-              <h3>Survival SMP</h3>
-              <p>play.creepernodes.com:25565</p>
-              <div class="server-card-meta"><span>🎮 Paper 1.21</span><span>👥 0 / 50</span></div>
-              <div class="expiry-bar"><div class="expiry-info"><span>Expiry</span><b>18 Oct 2026</b></div><div class="progress"><i style="width:76%"></i></div><small>46 days remaining</small></div>
-              <button>Manage Server →</button>
-            </article>
-            <article class="server-card" onclick="openServer('skyblock')">
-              <div class="server-card-top"><span class="online-pill">● Online</span><span>⋮</span></div>
-              <div class="server-card-icon">☷</div>
-              <h3>Skyblock Test</h3>
-              <p>sb.creepernodes.com:25565</p>
-              <div class="server-card-meta"><span>🎮 Purpur 1.21</span><span>👥 2 / 30</span></div>
-              <div class="expiry-bar warning-expiry"><div class="expiry-info"><span>Expiry</span><b>20 Sep 2026</b></div><div class="progress"><i style="width:23%"></i></div><small>12 days remaining</small></div>
-              <button>Manage Server →</button>
-            </article>
-          </div>
-        </section>
-
-        <!-- SERVER DETAIL -->
-        <section class="panel-view" id="serverPanel">
-          <div class="server-detail-head">
-            <div>
-              <button class="back-panel-btn" onclick="showPanelView('servers')">← Back to My Servers</button>
-              <div class="server-name-line"><span class="online-pill">● Online</span><h2 id="selectedServerName">Survival SMP</h2></div>
-              <p id="selectedServerAddress">play.creepernodes.com:25565</p>
-            </div>
-            <div class="server-controls">
-              <button class="control start" onclick="toast('Server start command sent')">▶ Start</button>
-              <button class="control restart" onclick="toast('Server restart command sent')">↻ Restart</button>
-              <button class="control stop" onclick="toast('Server stop command sent')">■ Stop</button>
-            </div>
-          </div>
-
-          <div class="resource-grid">
-            <div class="resource-card"><div class="resource-label"><span>▦ CPU Load</span><b id="cpuText">22.5%</b></div><div class="resource-bar"><i id="cpuBar" style="width:22.5%"></i></div><small>2.25 / 10 CPU</small></div>
-            <div class="resource-card"><div class="resource-label"><span>▤ Memory</span><b id="ramText">2.19 GiB</b></div><div class="resource-bar"><i id="ramBar" style="width:45.3%"></i></div><small>2.19 / 4.84 GiB</small></div>
-            <div class="resource-card"><div class="resource-label"><span>▱ Disk</span><b id="diskText">28.4 GiB</b></div><div class="resource-bar"><i id="diskBar" style="width:56.8%"></i></div><small>28.4 / 50 GiB</small></div>
-            <div class="resource-card"><div class="resource-label"><span>⌁ Network</span><b id="netText">128 Mbps</b></div><div class="resource-bar"><i id="netBar" style="width:68%"></i></div><small>96.7 ↓ • 31.7 ↑</small></div>
-          </div>
-
-          <div class="server-content-grid">
-            <div class="console-panel">
-              <div class="console-head"><div><span class="console-dot"></span><b>Live Console</b></div><div><button onclick="clearConsole()">Clear</button><button onclick="toast('Console copied')">Copy</button></div></div>
-              <pre id="consoleOutput">[16:08:01 INFO]: Starting CreeperNodes server...
-[16:08:03 INFO]: Loading world "world"
-[16:08:06 INFO]: Preparing spawn area
-[16:08:10 INFO]: Done (8.231s)! For help, type "help"
-[16:08:11 INFO]: Server is now online.</pre>
-              <form class="command-form" id="commandForm"><span>›_</span><input id="commandInput" placeholder="Enter a command..." autocomplete="off"><button>Send</button></form>
-            </div>
-
-            <div class="server-side-info">
-              <div class="info-card">
-                <h3>Server Details</h3>
-                <div><span>Address</span><b id="infoAddress">play.creepernodes.com:25565</b></div>
-                <div><span>Version</span><b>Paper 1.21</b></div>
-                <div><span>Node</span><b>Germany-01</b></div>
-                <div><span>Created</span><b>02 Sep 2026</b></div>
-              </div>
-              <div class="expiry-card">
-                <div class="expiry-card-icon">◷</div>
-                <div><span>Server Expiry</span><h3 id="expiryDate">18 Oct 2026</h3><p id="expiryCountdown">46 days remaining</p></div>
-                <button class="renew-btn" onclick="toast('Renewal flow will open when billing is connected')">Renew Server →</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- GENERIC PANELS -->
-        <section class="panel-view generic-view" id="consolePanel"><h2>Console</h2><p>Open a server first to use its live console.</p><button class="primary-btn" onclick="showPanelView('servers')">Choose Server →</button></section>
-        <section class="panel-view generic-view" id="filesPanel"><h2>Files</h2><p>Server file management will appear here when connected to your real panel backend.</p><button class="primary-btn" onclick="showPanelView('servers')">Choose Server →</button></section>
-        <section class="panel-view generic-view" id="backupsPanel"><h2>Backups</h2><p>Create and restore backups from your selected server.</p><button class="primary-btn" onclick="showPanelView('servers')">Choose Server →</button></section>
-        <section class="panel-view generic-view" id="networkPanel"><h2>Network</h2><p>Network allocations and ports will appear here.</p></section>
-        <section class="panel-view generic-view" id="settingsPanel"><h2>Settings</h2><p>Account and panel preferences.</p></section>
-      </div>
-    </div>
-  </section>
-
-  <div id="toast"></div>
   <script src="script.js"></script>
 </body>
 </html>
